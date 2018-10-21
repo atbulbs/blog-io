@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="webpack," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="8bulbs-project webpack-vue        模块化强迫症webpack配置工程师的webpack-vue配置,采用最新的webpack v-4.16和vue-loader v-15.3, 开箱即用, 引入vw适配(建议UI图为375px宽度, 写px单位会自动转为vw)和wechat-js-sdk(方便二次分享以及调用微信其他API),二次封装axios,更高效更激爽的构建">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个用Vue开发H5的webpack工程构建">
+<meta property="og:url" content="https://8bulbs.github.io/2018/06/18/一个用Vue开发H5的webpack工程构建/index.html">
+<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:description" content="8bulbs-project webpack-vue        模块化强迫症webpack配置工程师的webpack-vue配置,采用最新的webpack v-4.16和vue-loader v-15.3, 开箱即用, 引入vw适配(建议UI图为375px宽度, 写px单位会自动转为vw)和wechat-js-sdk(方便二次分享以及调用微信其他API),二次封装axios,更高效更激爽的构建">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48b.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">
+<meta property="og:updated_time" content="2018-09-29T08:32:04.606Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个用Vue开发H5的webpack工程构建">
+<meta name="twitter:description" content="8bulbs-project webpack-vue        模块化强迫症webpack配置工程师的webpack-vue配置,采用最新的webpack v-4.16和vue-loader v-15.3, 开箱即用, 引入vw适配(建议UI图为375px宽度, 写px单位会自动转为vw)和wechat-js-sdk(方便二次分享以及调用微信其他API),二次封装axios,更高效更激爽的构建">
+<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    
+    
+    emojis: {
+      className: 'github-emoji'
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://8bulbs.github.io/2018/06/18/一个用Vue开发H5的webpack工程构建/"/>
+
+
+
+
+
+  <title>一个用Vue开发H5的webpack工程构建 | 8bubls(Jason Liao)</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">code more, exercise more</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/06/18/一个用Vue开发H5的webpack工程构建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="8bubls(Jason Liao)">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一个用Vue开发H5的webpack工程构建</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-18T17:03:11+08:00">
+                2018-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端工程/" itemprop="url" rel="index">
+                    <span itemprop="name">前端工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1>8bulbs-project webpack-vue</h1>
+<p>       模块化强迫症<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20">webpack配置工程师<img class="github-emoji" title="sunglasses" alt="sunglasses" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8" height="20" width="20">的webpack-vue配置,采用最新的webpack v-4.16和vue-loader v-15.3, 开箱<img class="github-emoji" title="package" alt="package" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8" height="20" width="20">即用, 引入vw适配(建议UI图为375px宽度, 写px单位会自动转为vw)和wechat-js-sdk(方便二次分享以及调用微信其他API),二次封装axios,更高效<img class="github-emoji" title="rocket" alt="rocket" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png?v8" height="20" width="20">更激爽<img class="github-emoji" title="kiss" alt="kiss" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48b.png?v8" height="20" width="20">的构建H5项目</p>
+<h2 id="基于此配置构建的组件-插件库-自己撸的一些小轮子-welcome-npm-install-img-class-github-emoji-title-smile-alt-smile-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f604-png-v8-height-20-width-20"><a class="header-anchor" href="#基于此配置构建的组件-插件库-自己撸的一些小轮子-welcome-npm-install-img-class-github-emoji-title-smile-alt-smile-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f604-png-v8-height-20-width-20">¶</a>基于此配置构建的组件/插件库, 自己撸的一些小轮子, welcome npm install <img class="github-emoji" title="smile" alt="smile" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8" height="20" width="20"></h2>
+<blockquote>
+<p>npm package  <a href="https://www.npmjs.com/package/jsl-vue-h5" target="_blank" rel="noopener">https://www.npmjs.com/package/jsl-vue-h5</a></p>
+</blockquote>
+<blockquote>
+<p>git仓库  <a href="https://github.com/8bulbs/jsl-vue-h5" target="_blank" rel="noopener">https://github.com/8bulbs/jsl-vue-h5</a></p>
+</blockquote>
+<blockquote>
+<p>在线demo <a href="https://8bulbs.github.io/jsl-vue-h5-demo-online/">https://8bulbs.github.io/jsl-vue-h5-demo-online/</a></p>
+</blockquote>
+<blockquote>
+<p>demo仓库 <a href="https://github.com/8bulbs/jsl-vue-h5-demo" target="_blank" rel="noopener">https://github.com/8bulbs/jsl-vue-h5-demo</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="build-with-the-latest-version-of-dependencies"><a class="header-anchor" href="#build-with-the-latest-version-of-dependencies">¶</a>build with the latest version of dependencies</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># clone repository</span></span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/8bulbs/webpack-vue.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># change directory</span></span><br><span class="line">$ <span class="built_in">cd</span> webpack-vue</span><br><span class="line"></span><br><span class="line"><span class="comment"># install ncu at global</span></span><br><span class="line">$ npm install -g npm-check-updates</span><br><span class="line"></span><br><span class="line"><span class="comment"># use ncu</span></span><br><span class="line">$ ncu -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># install dependencies</span></span><br><span class="line">$ npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># run the develop server</span></span><br><span class="line">$ npm start</span><br><span class="line"></span><br><span class="line"><span class="comment"># build for production with minification</span></span><br><span class="line">$ npm run build</span><br></pre></td></tr></table></figure>
+<h2 id="to-deploy-your-project-proxy-and-history-mode-is-surported"><a class="header-anchor" href="#to-deploy-your-project-proxy-and-history-mode-is-surported">¶</a>to deploy your project (proxy and history mode is surported)</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># change directory</span></span><br><span class="line">$ <span class="built_in">cd</span> deploy-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># install dependencies</span></span><br><span class="line">$ npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># install pm2 at global to manager your production process</span></span><br><span class="line">$ npm install pm2 -g</span><br><span class="line"></span><br><span class="line"><span class="comment"># run the deploy server with pm2</span></span><br><span class="line">$ pm2 start server.js --watch</span><br></pre></td></tr></table></figure>
+<h2 id="directory-path-list"><a class="header-anchor" href="#directory-path-list">¶</a>directory path list</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">├─build</span><br><span class="line">│  ├─commonConfig</span><br><span class="line">│  └── ... <span class="comment"># 开发和生产的通用配置, 模式, 目标, 别名解析</span></span><br><span class="line">│  ├─commonPlugins</span><br><span class="line">│  └── ... <span class="comment"># 抽取出API请求</span></span><br><span class="line">│  ├─commonRules</span><br><span class="line">│  └── ... <span class="comment"># 通用的编译规则</span></span><br><span class="line">│  ├─devConfig</span><br><span class="line">│  └── ... <span class="comment"># 开发环境的配置, 入口, 出口, 开发服务器, 开发工具, 插件, 编译规则</span></span><br><span class="line">│  ├─prodConfig</span><br><span class="line">│  └── ... <span class="comment"># 生产环境的配置, 入口, 出口, 插件, 编译规则, 优化</span></span><br><span class="line">│  └─utils</span><br><span class="line">│  └── ... <span class="comment"># 工具类</span></span><br><span class="line">├─deploy-server</span><br><span class="line">│  └── ... <span class="comment"># 部署服务器, 支持请求代理和路由的history模式</span></span><br><span class="line">└─src</span><br><span class="line">    ├─api</span><br><span class="line">    │  └── ... <span class="comment"># 抽取出API请求, axios的二次封装</span></span><br><span class="line">    ├─libs</span><br><span class="line">    │  └── ... <span class="comment"># 工具类</span></span><br><span class="line">    ├─assets</span><br><span class="line">    │  ├─images</span><br><span class="line">    │  └── ... <span class="comment"># 图片资源</span></span><br><span class="line">    │  ├─js</span><br><span class="line">    │  └── ... <span class="comment"># 常量定义, 微信js开发工具包的调用</span></span><br><span class="line">    │  └─styles</span><br><span class="line">    │  └── ... <span class="comment"># css重置, 变量和mixin的设置</span></span><br><span class="line">    ├─base-components</span><br><span class="line">    │  └── ... <span class="comment"># 基础组件</span></span><br><span class="line">    ├─components</span><br><span class="line">    │  └── ... <span class="comment"># 业务组件</span></span><br><span class="line">    ├─pages</span><br><span class="line">    │  └── ... <span class="comment"># 页面视图</span></span><br><span class="line">    ├─router</span><br><span class="line">    │  └── ... <span class="comment"># 路由配置, 路由守卫, 滚动行为</span></span><br><span class="line">    └─store</span><br><span class="line">      └── ... <span class="comment"># vuex状态管理</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>点击打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="8bulbs 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="8bulbs 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/12/random的正确打开方式/" rel="next" title="random的正确打开方式">
+                <i class="fa fa-chevron-left"></i> random的正确打开方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/01/this is it  in JavaScript /" rel="prev" title="this is it in JavaScript">
+                this is it in JavaScript <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="8bulbs" />
+            
+              <p class="site-author-name" itemprop="name">8bulbs</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+  
+  
+  <div class="site-state-item site-state-categories">
+    
+	  <a href="/categories/index.html">
+	
+      <span class="site-state-item-count">10</span>
+      <span class="site-state-item-name">分类</span>
+    </a>
+  </div>
+
+
+
+  
+  
+  <div class="site-state-item site-state-tags">
+    
+	  <a href="/tags/index.html">
+	
+      <span class="site-state-item-count">17</span>
+      <span class="site-state-item-name">标签</span>
+    </a>
+  </div>
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/8bulbs" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:atbulbs@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">8bulbs-project webpack-vue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于此配置构建的组件-插件库-自己撸的一些小轮子-welcome-npm-install-img-class-github-emoji-title-smile-alt-smile-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f604-png-v8-height-20-width-20"><span class="nav-number">1.1.</span> <span class="nav-text">¶基于此配置构建的组件/插件库, 自己撸的一些小轮子, welcome npm install </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#build-with-the-latest-version-of-dependencies"><span class="nav-number">1.2.</span> <span class="nav-text">¶build with the latest version of dependencies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#to-deploy-your-project-proxy-and-history-mode-is-surported"><span class="nav-number">1.3.</span> <span class="nav-text">¶to deploy your project (proxy and history mode is surported)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#directory-path-list"><span class="nav-number">1.4.</span> <span class="nav-text">¶directory path list</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">8bulbs</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

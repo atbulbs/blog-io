@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="H5开发," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="¶1. 图片在ios端为空白  a方案: 给img加父级div, 设置父级div的高宽, 再给img设置宽度100%, a方法缺点, 增加了不必要的dom元素; b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做懒加载, 而且在微信端用户无法保存图片或者识别图片中的二维码; 总结: 根据不同的图片展示用途选择方案">
+<meta name="keywords" content="H5开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5开发出姿势集锦">
+<meta property="og:url" content="https://8bulbs.github.io/2018/07/29/H5开发出坑姿势集锦/index.html">
+<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:description" content="¶1. 图片在ios端为空白  a方案: 给img加父级div, 设置父级div的高宽, 再给img设置宽度100%, a方法缺点, 增加了不必要的dom元素; b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做懒加载, 而且在微信端用户无法保存图片或者识别图片中的二维码; 总结: 根据不同的图片展示用途选择方案">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-08T00:26:39.572Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5开发出姿势集锦">
+<meta name="twitter:description" content="¶1. 图片在ios端为空白  a方案: 给img加父级div, 设置父级div的高宽, 再给img设置宽度100%, a方法缺点, 增加了不必要的dom元素; b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做懒加载, 而且在微信端用户无法保存图片或者识别图片中的二维码; 总结: 根据不同的图片展示用途选择方案">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    
+    
+    emojis: {
+      className: 'github-emoji'
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://8bulbs.github.io/2018/07/29/H5开发出坑姿势集锦/"/>
+
+
+
+
+
+  <title>H5开发出姿势集锦 | 8bubls(Jason Liao)</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">code more, exercise more</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/07/29/H5开发出坑姿势集锦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="8bubls(Jason Liao)">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">H5开发出姿势集锦</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T16:30:17+08:00">
+                2018-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-图片在ios端为空白"><a class="header-anchor" href="#1-图片在ios端为空白">¶</a>1. 图片在ios端为空白</h3>
+<blockquote>
+<p>a方案: 给img加父级div, 设置父级div的高宽, 再给img设置宽度100%, a方法缺点, 增加了不必要的dom元素;<br>
+b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做懒加载, 而且在微信端用户无法保存图片或者识别图片中的二维码;<br>
+总结: 根据不同的图片展示用途选择方案</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="2-模态框里的选择列表滑动时-浮层下面的视图会跟随滚动"><a class="header-anchor" href="#2-模态框里的选择列表滑动时-浮层下面的视图会跟随滚动">¶</a>2. 模态框里的选择列表滑动时, 浮层下面的视图会跟随滚动</h3>
+<blockquote>
+<p>方案: 模态框展示时, 让body固定定位, 模态框不展示时, 再取消body的固定定位</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义方法-是否暂停body滚动</span></span><br><span class="line">isStopBodyScroll (flag) &#123;</span><br><span class="line">  <span class="keyword">const</span> bodyStyle = <span class="built_in">document</span>.body.style</span><br><span class="line">  <span class="keyword">const</span> top = <span class="number">0</span></span><br><span class="line">  <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">    top = <span class="built_in">window</span>.scrollY</span><br><span class="line">    bodyStyle.position = <span class="string">'fixed'</span></span><br><span class="line">    <span class="comment">// console.log('body is fixed')</span></span><br><span class="line">    bodyStyle.top = -top + <span class="string">'px'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    bodyStyle.position = <span class="string">''</span></span><br><span class="line">    <span class="comment">// console.log('body is not fixed')</span></span><br><span class="line">    bodyStyle.top = <span class="string">''</span></span><br><span class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, top)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-浏览器厂商安全策略-audio标签只能在用户交互后才能播放"><a class="header-anchor" href="#3-浏览器厂商安全策略-audio标签只能在用户交互后才能播放">¶</a>3. 浏览器厂商安全策略, audio标签只能在用户交互后才能播放</h3>
+<blockquote>
+<p>a. 在微信端: audio的play方法放在 wx.ready(callback) 回调里执行, 若用户在第三方浏览器比如UC打开, wx.ready 也会执行<br>
+b. 在原生APP端: 可让原生同学提供模拟用户点击webview的方法, 调用此方法并传入播放音乐的回调, 或者用更简单的办法让原生修改webview设置</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置媒体播放不需要用户的手势</span></span><br><span class="line">webView.getSettings().setMediaPlaybackRequiresUserGesture(<span class="keyword">false</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/assets/js/wechat-config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">wechatConfig</span> (<span class="params">callBack</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> getSignature()</span><br><span class="line">  <span class="keyword">const</span> data = res.data</span><br><span class="line">  <span class="keyword">const</span> configObj = &#123;</span><br><span class="line">    debug: <span class="literal">false</span>,</span><br><span class="line">    appId,</span><br><span class="line">    timestamp: data.timestamp,</span><br><span class="line">    nonceStr: data.noncestr,</span><br><span class="line">    signature: data.signature,</span><br><span class="line">    jsApiList</span><br><span class="line">  &#125;</span><br><span class="line">  wx.config(configObj)</span><br><span class="line">  wx.ready(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    callBack()</span><br><span class="line">    wechatShareConfig()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// src/components/jsl-player.vue</span></span><br><span class="line">mounted () &#123;</span><br><span class="line">  <span class="keyword">this</span>.setPlayerBg(playImg)</span><br><span class="line">  <span class="keyword">this</span>.startRotate()</span><br><span class="line">  <span class="keyword">if</span> (isInWechat()) &#123;</span><br><span class="line">    wechatConfig(<span class="keyword">this</span>.audioPlay)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.audioPlay()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-开发时-若从微信平台获取签名的接口-与其他接口不在同一个服务器-可在devserver里设置多个代理-解决跨域-测试与生产服务器必须有公网域名才能获取合法签名-还需后端同学申请访问获取签名服务器的权限"><a class="header-anchor" href="#4-开发时-若从微信平台获取签名的接口-与其他接口不在同一个服务器-可在devserver里设置多个代理-解决跨域-测试与生产服务器必须有公网域名才能获取合法签名-还需后端同学申请访问获取签名服务器的权限">¶</a>4. 开发时, 若从微信平台获取签名的接口, 与其他接口不在同一个服务器, 可在devServer里设置多个代理, 解决跨域, 测试与生产服务器必须有公网域名才能获取合法签名, 还需后端同学申请访问获取签名服务器的权限</h3>
+<h3 id="5-获取微信签名的接口-url应采用拼接的方式传入axios-不然冒号和斜杠会被encodeuricomponent-导致获取的签名不合法"><a class="header-anchor" href="#5-获取微信签名的接口-url应采用拼接的方式传入axios-不然冒号和斜杠会被encodeuricomponent-导致获取的签名不合法">¶</a>5. 获取微信签名的接口, url应采用拼接的方式传入axios, 不然冒号和斜杠会被encodeURIComponent, 导致获取的签名不合法</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getSignature</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> $.get(<span class="string">'/?appId='</span> + appId + <span class="string">'&amp;url='</span> + url)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-注册微信分享的信息-必须放在wx-ready-callback-回调里-不然会出现用户分享后的文案与图片显示异常"><a class="header-anchor" href="#6-注册微信分享的信息-必须放在wx-ready-callback-回调里-不然会出现用户分享后的文案与图片显示异常">¶</a>6. 注册微信分享的信息, 必须放在wx.ready(callback)回调里, 不然会出现用户分享后的文案与图片显示异常</h3>
+<h3 id="7-样式采用vw单位-每个独立的小图尽量都切出来-不然会在不同尺寸的终端变形"><a class="header-anchor" href="#7-样式采用vw单位-每个独立的小图尽量都切出来-不然会在不同尺寸的终端变形">¶</a>7. 样式采用VW单位, 每个独立的小图尽量都切出来, 不然会在不同尺寸的终端变形</h3>
+<h3 id="8-一定要在微信端-安卓原生app端-与ios-app端都跑一跑-安卓和ios的webview不一样-特别是ios修改配置然后发版太蛋疼"><a class="header-anchor" href="#8-一定要在微信端-安卓原生app端-与ios-app端都跑一跑-安卓和ios的webview不一样-特别是ios修改配置然后发版太蛋疼">¶</a>8. 一定要在微信端, 安卓原生APP端, 与iOS APP端都跑一跑, 安卓和iOS的webview不一样, 特别是iOS修改配置然后发版太蛋疼</h3>
+<h3 id="9-如果需要对ios和android的webview做区别处理-可以让原生的同学设置用户代理的信息-加入关键字"><a class="header-anchor" href="#9-如果需要对ios和android的webview做区别处理-可以让原生的同学设置用户代理的信息-加入关键字">¶</a>9. 如果需要对ios和android的webview做区别处理, 可以让原生的同学设置用户代理的信息, 加入关键字</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 微信端的ua关键字与原生自定义的ua关键字</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> uaKeyWordsMap = &#123;</span><br><span class="line">  isInWechat: <span class="string">'micromessenger'</span>,</span><br><span class="line">  isInAndroidApp: <span class="string">'TSH-Android'</span>,</span><br><span class="line">  isInIosApp: <span class="string">'TSH-iOS'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取H5的运行时环境</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getH5RuntimeEnv</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="string">''</span></span><br><span class="line">  <span class="keyword">const</span> ua = <span class="built_in">window</span>.navigator.userAgent.toLowerCase()</span><br><span class="line">  <span class="built_in">Object</span>.keys(uaKeyWordsMap).forEach(<span class="function">(<span class="params">runtimeEnv</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> uaKeyWord = uaKeyWordsMap[runtimeEnv].toLowerCase()</span><br><span class="line">    <span class="keyword">if</span> (ua.indexOf(uaKeyWord) &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">      result = runtimeEnv</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="10-文字小于14px的处理-注意要作用在块级元素"><a class="header-anchor" href="#10-文字小于14px的处理-注意要作用在块级元素">¶</a>10. 文字小于14px的处理, 注意要作用在块级元素</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">span</span></span><br><span class="line">  <span class="selector-tag">display</span> <span class="selector-tag">inline-block</span></span><br><span class="line">  <span class="selector-tag">transform</span> <span class="selector-tag">scale</span>(0<span class="selector-class">.95</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="11-input框在ios平台-须点击多次才能出发文件选择框-解决办法-加上-cursor-pointer-我只想说这个小手是黑科技-比较科学的解释是-微信浏览器会把有小手的元素解析为a标签-而微信里的click事件只在a标签上有效"><a class="header-anchor" href="#11-input框在ios平台-须点击多次才能出发文件选择框-解决办法-加上-cursor-pointer-我只想说这个小手是黑科技-比较科学的解释是-微信浏览器会把有小手的元素解析为a标签-而微信里的click事件只在a标签上有效">¶</a>11. input框在ios平台, 须点击多次才能出发文件选择框, 解决办法, 加上 cursor: pointer, 我只想说这个小手是黑科技, 比较科学的解释是, 微信浏览器会把有小手的元素解析为a标签, 而微信里的click事件只在a标签上有效</h3>
+<h3 id="12-失去焦点时的回调-如果无法触发-则在callbackfn里加入延迟定时器-用来兼容webview的-keyboarddisplayrequiresuseraction设置"><a class="header-anchor" href="#12-失去焦点时的回调-如果无法触发-则在callbackfn里加入延迟定时器-用来兼容webview的-keyboarddisplayrequiresuseraction设置">¶</a>12. 失去焦点时的回调, 如果无法触发, 则在callbackfn里加入延迟定时器, 用来兼容webView的 keyboardDisplayRequiresUserAction设置</h3>
+<h3 id="13-ios-webview-scroll-卡顿-webkit-overflow-scrolling-touch-创建带有硬件加速的系统级控件-所以效率很高"><a class="header-anchor" href="#13-ios-webview-scroll-卡顿-webkit-overflow-scrolling-touch-创建带有硬件加速的系统级控件-所以效率很高">¶</a>13. ios webView scroll 卡顿, -webkit-overflow-scrolling: touch 创建带有硬件加速的系统级控件，所以效率很高</h3>
+<h3 id="14-键盘唤起时-让输入框position-fixed-如果ios和android的webview的键盘唤起时页面的行为不一样-比如一个是键盘把页面顶上去-一个是遮住页面-注意遮住页面后页面的100vh是会变小的"><a class="header-anchor" href="#14-键盘唤起时-让输入框position-fixed-如果ios和android的webview的键盘唤起时页面的行为不一样-比如一个是键盘把页面顶上去-一个是遮住页面-注意遮住页面后页面的100vh是会变小的">¶</a>14. 键盘唤起时,让输入框position: fixed, 如果iOS和Android的webView的键盘唤起时页面的行为不一样, 比如一个是键盘把页面顶上去, 一个是遮住页面, 注意遮住页面后页面的100vh是会变小的</h3>
+<h3 id="15-在https协议下-动态的去加载http协议的js文件-会报错-解决方案如下"><a class="header-anchor" href="#15-在https协议下-动态的去加载http协议的js文件-会报错-解决方案如下">¶</a>15.  在https协议下, 动态的去加载http协议的js文件, 会报错, 解决方案如下</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"//domin.com/js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>点击打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="8bulbs 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="8bulbs 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/H5开发/" rel="tag"># H5开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/27/从JS运行机制谈Vue的nextTick/" rel="next" title="从JS运行机制谈Vue的nextTick">
+                <i class="fa fa-chevron-left"></i> 从JS运行机制谈Vue的nextTick
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/08/浅谈http/" rel="prev" title="浅谈http">
+                浅谈http <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="8bulbs" />
+            
+              <p class="site-author-name" itemprop="name">8bulbs</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+  
+  
+  <div class="site-state-item site-state-categories">
+    
+	  <a href="/categories/index.html">
+	
+      <span class="site-state-item-count">10</span>
+      <span class="site-state-item-name">分类</span>
+    </a>
+  </div>
+
+
+
+  
+  
+  <div class="site-state-item site-state-tags">
+    
+	  <a href="/tags/index.html">
+	
+      <span class="site-state-item-count">17</span>
+      <span class="site-state-item-name">标签</span>
+    </a>
+  </div>
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/8bulbs" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:atbulbs@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-图片在ios端为空白"><span class="nav-number">1.</span> <span class="nav-text">¶1. 图片在ios端为空白</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-模态框里的选择列表滑动时-浮层下面的视图会跟随滚动"><span class="nav-number">2.</span> <span class="nav-text">¶2. 模态框里的选择列表滑动时, 浮层下面的视图会跟随滚动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-浏览器厂商安全策略-audio标签只能在用户交互后才能播放"><span class="nav-number">3.</span> <span class="nav-text">¶3. 浏览器厂商安全策略, audio标签只能在用户交互后才能播放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-开发时-若从微信平台获取签名的接口-与其他接口不在同一个服务器-可在devserver里设置多个代理-解决跨域-测试与生产服务器必须有公网域名才能获取合法签名-还需后端同学申请访问获取签名服务器的权限"><span class="nav-number">4.</span> <span class="nav-text">¶4. 开发时, 若从微信平台获取签名的接口, 与其他接口不在同一个服务器, 可在devServer里设置多个代理, 解决跨域, 测试与生产服务器必须有公网域名才能获取合法签名, 还需后端同学申请访问获取签名服务器的权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-获取微信签名的接口-url应采用拼接的方式传入axios-不然冒号和斜杠会被encodeuricomponent-导致获取的签名不合法"><span class="nav-number">5.</span> <span class="nav-text">¶5. 获取微信签名的接口, url应采用拼接的方式传入axios, 不然冒号和斜杠会被encodeURIComponent, 导致获取的签名不合法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-注册微信分享的信息-必须放在wx-ready-callback-回调里-不然会出现用户分享后的文案与图片显示异常"><span class="nav-number">6.</span> <span class="nav-text">¶6. 注册微信分享的信息, 必须放在wx.ready(callback)回调里, 不然会出现用户分享后的文案与图片显示异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-样式采用vw单位-每个独立的小图尽量都切出来-不然会在不同尺寸的终端变形"><span class="nav-number">7.</span> <span class="nav-text">¶7. 样式采用VW单位, 每个独立的小图尽量都切出来, 不然会在不同尺寸的终端变形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-一定要在微信端-安卓原生app端-与ios-app端都跑一跑-安卓和ios的webview不一样-特别是ios修改配置然后发版太蛋疼"><span class="nav-number">8.</span> <span class="nav-text">¶8. 一定要在微信端, 安卓原生APP端, 与iOS APP端都跑一跑, 安卓和iOS的webview不一样, 特别是iOS修改配置然后发版太蛋疼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-如果需要对ios和android的webview做区别处理-可以让原生的同学设置用户代理的信息-加入关键字"><span class="nav-number">9.</span> <span class="nav-text">¶9. 如果需要对ios和android的webview做区别处理, 可以让原生的同学设置用户代理的信息, 加入关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-文字小于14px的处理-注意要作用在块级元素"><span class="nav-number">10.</span> <span class="nav-text">¶10. 文字小于14px的处理, 注意要作用在块级元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-input框在ios平台-须点击多次才能出发文件选择框-解决办法-加上-cursor-pointer-我只想说这个小手是黑科技-比较科学的解释是-微信浏览器会把有小手的元素解析为a标签-而微信里的click事件只在a标签上有效"><span class="nav-number">11.</span> <span class="nav-text">¶11. input框在ios平台, 须点击多次才能出发文件选择框, 解决办法, 加上 cursor: pointer, 我只想说这个小手是黑科技, 比较科学的解释是, 微信浏览器会把有小手的元素解析为a标签, 而微信里的click事件只在a标签上有效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-失去焦点时的回调-如果无法触发-则在callbackfn里加入延迟定时器-用来兼容webview的-keyboarddisplayrequiresuseraction设置"><span class="nav-number">12.</span> <span class="nav-text">¶12. 失去焦点时的回调, 如果无法触发, 则在callbackfn里加入延迟定时器, 用来兼容webView的 keyboardDisplayRequiresUserAction设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-ios-webview-scroll-卡顿-webkit-overflow-scrolling-touch-创建带有硬件加速的系统级控件-所以效率很高"><span class="nav-number">13.</span> <span class="nav-text">¶13. ios webView scroll 卡顿, -webkit-overflow-scrolling: touch 创建带有硬件加速的系统级控件，所以效率很高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-键盘唤起时-让输入框position-fixed-如果ios和android的webview的键盘唤起时页面的行为不一样-比如一个是键盘把页面顶上去-一个是遮住页面-注意遮住页面后页面的100vh是会变小的"><span class="nav-number">14.</span> <span class="nav-text">¶14. 键盘唤起时,让输入框position: fixed, 如果iOS和Android的webView的键盘唤起时页面的行为不一样, 比如一个是键盘把页面顶上去, 一个是遮住页面, 注意遮住页面后页面的100vh是会变小的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-在https协议下-动态的去加载http协议的js文件-会报错-解决方案如下"><span class="nav-number">15.</span> <span class="nav-text">¶15.  在https协议下, 动态的去加载http协议的js文件, 会报错, 解决方案如下</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">8bulbs</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
