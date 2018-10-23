@@ -1,6 +1,6 @@
 ---
 title: 浅谈http
-date: 2018-13-08 13:56:25
+date: 2018-5-08 13:56:25
 tags: http
 categories: http
 ---
@@ -13,6 +13,7 @@ categories: http
 4.  数据链路层(电路的连接)
 5.  物理层(硬件设备)
 
+<!-- more -->
 ### 发展历史
 1. http/0.9(只有get命令, 没有header)
 2. http/1.0(更多命令, 有header)
