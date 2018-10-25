@@ -8,33 +8,39 @@ categories: 设计模式
 ### ES6的实现
 <!-- more -->
 ```javascript
-class EventEmitter {
+export class EventEmitter {
   constructor () {
-    this.listenList = {}
+    this.listenerList = {}
   }
-  on (eventName, callback) {
-    const callbacks = this.listenList[eventName] || []
-    callbacks.push(callback)
-    this.listenList[eventName] = callbacks
+  on (e, cb) {
+    const cbs = this.listenerList[e] || []
+    if (typeof cb !== 'function') {
+      throw new TypeError(`${e}.${cb} is not a function`)
+    } else {
+      cbs.push(cb)
+    }
+    this.listenerList[e] = cbs
   }
-  emit (eventName, ...args) {
-    const callbacks = this.listenList[eventName]
-    if (callbacks && callbacks.length) {	
-      callbacks.forEach((callback) => {	
-        callback(...args)
+  emit (e) {
+    const cbs = this.listenerList[e]
+    const restArgs = Array.prototype.slice.call(arguments, 1)
+    if (cbs && cbs.length) {
+      cbs.forEach((cb) => {
+        cb(restArgs)
       })
-    } 
+    }
   }
-  off (eventName, functionName) {
-    const callbacks = this.listenList[eventName]
-    if (callbacks && callbacks.length) {
-      if (functionName && callbacks.includes(functionName)) {	
-        const index = callbacks.indexOf(funtionName)
-        callback.splice(index, 1)
-      } else if (!functionName) {
-        delete this.listenList[eventName]
-      }	
+  off (e, fn) {
+    const cbs = this.listenerList[e]
+    if (cbs && cbs.length) {
+      if (fn && cbs.includes(fn)) {
+        const index = cbs.indexOf(fn)
+        cbs.splice(index, 1)
+      } else if (!fn) {
+        delete this.listenerList[e]
+      }
     }
   }
 }
+
 ```

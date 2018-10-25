@@ -6,10 +6,10 @@
 
 
 <html class="theme-next gemini use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -20,8 +20,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -40,7 +40,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -48,9 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="源码探秘," />
+  <meta name="keywords" content="源码探秘,">
 
 
 
@@ -87,8 +87,8 @@
 <meta property="og:site_name" content="8bubls(Jason Liao)">
 <meta property="og:description" content="¶从JavaScript的单线程谈起        什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把D">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
-<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v7">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v7">
 <meta property="og:image" content="https://8bulbs.github.io/images/next-tick/brendan-eich.jpg">
 <meta property="og:image" content="https://8bulbs.github.io/images/next-tick/ryan-dahl.jpg">
 <meta property="og:image" content="https://8bulbs.github.io/images/next-tick/event-loop.png">
@@ -96,11 +96,11 @@
 <meta property="og:image" content="https://8bulbs.github.io/images/next-tick/vue-doc-2.png">
 <meta property="og:image" content="https://8bulbs.github.io/images/next-tick/global-api.png">
 <meta property="og:image" content="https://8bulbs.github.io/images/next-tick/instance-render.png">
-<meta property="og:updated_time" content="2018-09-21T05:38:25.234Z">
+<meta property="og:updated_time" content="2018-10-23T17:16:51.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从JS运行机制谈Vue的nextTick">
 <meta name="twitter:description" content="¶从JavaScript的单线程谈起        什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把D">
-<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
+<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v7">
 
 
 
@@ -135,7 +135,7 @@
 
 
 
-  <link rel="canonical" href="https://8bulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/"/>
+  <link rel="canonical" href="https://8bulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/">
 
 
 
@@ -153,7 +153,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -163,13 +163,13 @@
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">8bubls(Jason Liao)</span>
         <span class="logo-line-after"><i></i></span>
@@ -199,7 +199,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -209,7 +209,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -219,7 +219,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -229,7 +229,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -239,7 +239,7 @@
         <li class="menu-item menu-item-commonweal">
           <a href="/404/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             公益404
           </a>
@@ -273,20 +273,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="8bulbs">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="8bubls(Jason Liao)">
     </span>
 
@@ -318,7 +318,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -329,7 +329,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/vue/" itemprop="url" rel="index">
                     <span itemprop="name">vue</span>
                   </a>
@@ -368,7 +368,7 @@
 
       
         <h2 id="从javascript的单线程谈起"><a class="header-anchor" href="#从javascript的单线程谈起">¶</a>从JavaScript的单线程谈起</h2>
-<p>       什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根就找不到DOM_FOO,这下就尴尬了<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20">, 完不成任务该咋整啊, 要主人来一套锁机制吧, 会不会成本太高, 布兰登巴巴一开始就把它设计成了单线程(而且与浏览器渲染DOM共用一个线程), 并被瑞安大大发扬光大, 膜拜一下我JS两大男神<img class="github-emoji" title="heart_eyes" alt="heart_eyes" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8" height="20" width="20"></p>
+<p>       什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根就找不到DOM_FOO,这下就尴尬了<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v7" height="20" width="20">, 完不成任务该咋整啊, 要主人来一套锁机制吧, 会不会成本太高, 布兰登巴巴一开始就把它设计成了单线程(而且与浏览器渲染DOM共用一个线程), 并被瑞安大大发扬光大, 膜拜一下我JS两大男神<img class="github-emoji" title="heart_eyes" alt="heart_eyes" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v7" height="20" width="20"></p>
 <a id="more"></a>
 <p><img src="/images/next-tick/brendan-eich.jpg" alt="brendan-eich"></p>
 <p><img src="/images/next-tick/ryan-dahl.jpg" alt="ryan-dahl"></p>
@@ -412,14 +412,14 @@
 
     
       <div id="wechat" style="display: block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="8bulbs 微信支付"/>
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="8bulbs 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="8bulbs 支付宝"/>
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="8bulbs 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -527,11 +527,9 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/avatar.png"
-                alt="8bulbs" />
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="8bulbs">
             
               <p class="site-author-name" itemprop="name">8bulbs</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -544,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +555,7 @@
     
 	  <a href="/categories/index.html">
 	
-      <span class="site-state-item-count">10</span>
+      <span class="site-state-item-count">14</span>
       <span class="site-state-item-name">分类</span>
     </a>
   </div>
@@ -570,7 +568,7 @@
     
 	  <a href="/tags/index.html">
 	
-      <span class="site-state-item-count">17</span>
+      <span class="site-state-item-count">20</span>
       <span class="site-state-item-name">标签</span>
     </a>
   </div>

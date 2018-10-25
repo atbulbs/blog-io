@@ -1,5 +1,5 @@
 ---
-title: mac vscode快捷键
+title: mac系统快捷键
 date: 2018-10-17 16:08:17
 tags: mac
 categories: mac
