@@ -13,5 +13,7 @@ categories: mac
 * 向上 / 下 复制行 `shift + option + up / down`
 * 查找 `command + F`
 * 查找下一个 `command + G`
+* 添加下一个查找 `command + D`
 * 选取全部与当前匹配的 `shift + command + L`
 * 注释 / 解注释 `command + /`
+* kill删除一整行 `shift + command + k`
