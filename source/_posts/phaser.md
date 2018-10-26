@@ -1,8 +1,8 @@
 ---
-title: phaser
+title: Phaser
 date: 2018-10-22 16:08:17
-tags: phaser
-categories: phaser
+tags: Phaser
+categories: Phaser
 ---
 
 # 简介
@@ -18,7 +18,7 @@ categories: phaser
 Phaser3官方API文档[https://github.com/photonstorm/phaser3-docs/tree/master/docs](https://github.com/photonstorm/phaser3-docs/tree/master/docs)
 
 # 我用webpack和vue模块化改版官方的Phaser3入门游戏，带详细注释
-在线demo地址, 请切换浏览器为手机模式[https://8bulbs.github.io/vue-phaser-demo/index.html](https://8bulbs.github.io/vue-phaser-demo/index.html)
+在线demo地址[https://8bulbs.github.io/vue-phaser-demo/index.html](https://8bulbs.github.io/vue-phaser-demo/index.html)
 git仓库地址[https://github.com/8bulbs/vue-phaser](https://github.com/8bulbs/vue-phaser)
 
 # 坑

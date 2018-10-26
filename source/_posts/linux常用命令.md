@@ -26,3 +26,4 @@ $ rm -rf # remove recursive force
 * 显示隐藏的文件： `ls -ah`
   
 * 显示当前路径：  `pwd`
+* 查看ip `ifconfig`
