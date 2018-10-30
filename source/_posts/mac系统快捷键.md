@@ -19,6 +19,7 @@ categories: mac
 * 自定义打开 chrome `command + shift + .`
 * 自定义打开 vscode `command + '`
 * 自定义打开 wechat `command + shift + '`
+* 打开应用程序管理器 `option + command + esc`
 
 >关闭第三方程序验证
 ```bash

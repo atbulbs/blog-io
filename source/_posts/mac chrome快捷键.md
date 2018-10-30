@@ -11,6 +11,7 @@ categories: mac
 * 打开新窗口 `command + N`
 * 关闭 标签 / 窗口 `command + W`
 * 打开之前关闭(tichu)的标签(chrome可记忆十个) `shift + command + T`
+* 在新tab中打开链接 `command + leftclick`
 * 在新窗口中打开链接 `shift + leftclick`
 * mini最小化浏览器 `command + M`
 * 打开浏览器(自定义的) `shift + command + .`
