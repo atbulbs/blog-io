@@ -1,5 +1,5 @@
 ---
-title: linux避免勿删
+title: linux避免误删
 date: 2018-10-17 16:08:17
 tags: linux
 categories: linux
