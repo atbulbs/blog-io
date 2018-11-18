@@ -265,6 +265,400 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="8bubls(Jason Liao)">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/18/2018-11-18移动端VW适配方案/" itemprop="url">移动端vw适配方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T12:15:17+08:00">
+                2018-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>通过阅读此篇文章, 你将有如下收获</h1>
+<p>       1. 什么是<code>vw</code>适配<br>
+       2. <code>vw</code>适配的兼容性<br>
+       3. 如何在移动端H5项目<code>webpack</code>构建中引入<code>vw</code>适配<br>
+       4. 大漠老师<code>vw</code>适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)<br>
+       5. 我为小伙伴们准备的一波福利: 开箱<img class="github-emoji" title="package" alt="package" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8" height="20" width="20">即用的<code>vw</code>配置<code>webpack</code>构建<br>
+       6. 实际开发中<code>vw</code>适配的应用<br>
+       7. vw适配的坑以及爬坑姿势<br>
+       8. 文章末尾有彩蛋哟<img class="github-emoji" title="heart_eyes" alt="heart_eyes" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8" height="20" width="20"></p>
+<h1>一. 什么是<code>vw</code>适配</h1>
+<h2 id="1-1-vw-相对于视窗的宽度-视窗宽度是100vw-即window-innerwidth-window-innerheight大小-不包含任务栏标题栏以及底部工具栏的浏览器区域大小"><a class="header-anchor" href="#1-1-vw-相对于视窗的宽度-视窗宽度是100vw-即window-innerwidth-window-innerheight大小-不包含任务栏标题栏以及底部工具栏的浏览器区域大小">¶</a>1.1 vw 相对于视窗的宽度:视窗宽度是100vw, 即window.innerWidth/window.innerHeight大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小</h2>
+<h2 id="1-2-css世界-作者张鑫旭老师的视区相关单位vw-vh-简介以及可实际应用场景"><a class="header-anchor" href="#1-2-css世界-作者张鑫旭老师的视区相关单位vw-vh-简介以及可实际应用场景">¶</a>1.2 &lt;&lt;CSS世界&gt;&gt;作者张鑫旭老师的<a href="https://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/" target="_blank" rel="noopener">视区相关单位vw, vh…简介以及可实际应用场景</a></h2>
+<h1>二. <code>vw</code>适配的兼容性</h1>
+<h3 id="2-1-可使用viewport的polyfill方案来完美解决-postcss-viewport-units配合viewport-units-buggyfill"><a class="header-anchor" href="#2-1-可使用viewport的polyfill方案来完美解决-postcss-viewport-units配合viewport-units-buggyfill">¶</a>2.1 可使用<code>viewport</code>的polyfill方案来完美解决:<code>postcss-viewport-units</code>配合<a href="https://github.com/rodneyrehm/viewport-units-buggyfill" target="_blank" rel="noopener">viewport-units-buggyfill</a></h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -S viewport-units-buggyfill</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'viewport-units-buggyfill'</span>).init()</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-兼容的范围"><a class="header-anchor" href="#2-2-兼容的范围">¶</a>2.2 兼容的范围</h3>
+<p><img src="/images/vw-ajust/vw-buggyfill.png" alt="vw-buggyfill"></p>
+<h3 id="2-3-测试用例"><a class="header-anchor" href="#2-3-测试用例">¶</a>2.3 测试用例</h3>
+<p><img src="/images/vw-ajust/vw-test.png" alt="vw-test"></p>
+<h1>三. 如何在移动端H5项目<code>webpack</code>构建中引入<code>vw</code>适配</h1>
+<h2 id="3-1-大漠老师的原文链接"><a class="header-anchor" href="#3-1-大漠老师的原文链接">¶</a>3.1 大漠老师的原文链接</h2>
+<p><a href="https://www.w3cplus.com/mobile/vw-layout-in-vue.html" target="_blank" rel="noopener">如何在Vue项目中使用vw实现移动端适配(请戳)</a></p>
+<h2 id="3-2-大漠老师所用postcss-plugins和配置的说明"><a class="header-anchor" href="#3-2-大漠老师所用postcss-plugins和配置的说明">¶</a>3.2 大漠老师所用<code>postcss plugins</code>和配置的说明</h2>
+<h3 id="3-2-1-插一嘴-什么是postcss"><a class="header-anchor" href="#3-2-1-插一嘴-什么是postcss">¶</a>3.2.1 插一嘴, 什么是<code>postcss</code></h3>
+<p>       <code>postcss</code>是一个平台，其本身不对 <code>CSS</code>进行处理，但是通过在该平台上集成插件，可以实现对<code>CSS</code>的操作。</p>
+<h3 id="3-2-2-核心postcss-plugins-postcss-px-to-viewport"><a class="header-anchor" href="#3-2-2-核心postcss-plugins-postcss-px-to-viewport">¶</a>3.2.2 核心<code>postcss plugins</code>: <code>postcss-px-to-viewport</code></h3>
+<p>       把<code>px</code>单位转换为<code>vw</code>、<code>vh</code>、<code>vmin</code>或者<code>vmax</code>这样的视窗单位</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// your-project/.postcssrc.js</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"plugins"</span>: &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="string">"postcss-px-to-viewport"</span>: &#123;</span><br><span class="line">    viewportWidth: <span class="number">375</span>,      <span class="comment">// 视窗的宽度，对应的是我们设计稿的宽度，一般是375</span></span><br><span class="line">    viewportHeight: <span class="number">667</span>,    <span class="comment">// 视窗的高度，根据750设备的宽度来指定，一般指定667，也可以不配置</span></span><br><span class="line">    unitPrecision: <span class="number">3</span>,        <span class="comment">// 指定`px`转换为视窗单位值的小数位数(很多时候无法整除)</span></span><br><span class="line">    viewportUnit: <span class="string">'vw'</span>,      <span class="comment">// 指定需要转换成的视窗单位，建议使用vw</span></span><br><span class="line">    selectorBlackList: [<span class="string">'.ignore'</span>, <span class="string">'.hairlines'</span>],  <span class="comment">// 指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名</span></span><br><span class="line">    minPixelValue: <span class="number">1</span>,       <span class="comment">// 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值</span></span><br><span class="line">    mediaQuery: <span class="literal">false</span>       <span class="comment">// 允许在媒体查询中转换`px`</span></span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-2-postcss-import"><a class="header-anchor" href="#3-2-2-postcss-import">¶</a>3.2.2 <code>postcss-import</code></h3>
+<p>       解决<code>@import</code>引入路径问题, 配合<code>postcss-url</code>让你引入文件变得更轻松</p>
+<h3 id="3-2-3-postcss-url"><a class="header-anchor" href="#3-2-3-postcss-url">¶</a>3.2.3 <code>postcss-url</code></h3>
+<p>       处理文件，比如图片文件、字体文件等引用路径</p>
+<h3 id="3-2-4-autoprefixer"><a class="header-anchor" href="#3-2-4-autoprefixer">¶</a>3.2.4 <code>autoprefixer</code></h3>
+<p>       让你在编码时不再需要考虑任何浏览器前缀的问题，可以专心撸码</p>
+<h3 id="3-2-5-postcss-cssnext"><a class="header-anchor" href="#3-2-5-postcss-cssnext">¶</a>3.2.5 <code>postcss-cssnext</code></h3>
+<p>       该插件可以让我们使用<code>CSS</code>未来的特性，其会对这些特性做相关的兼容性处理</p>
+<h3 id="3-2-6-cssnano"><a class="header-anchor" href="#3-2-6-cssnano">¶</a>3.2.6 <code>cssnano</code></h3>
+<p>       压缩和清理<code>CSS</code>代码。在<code>webpack</code>中，<code>cssnano</code>和<code>css-loader</code>捆绑在一起，所以不需要自己加载它. 记得将<code>postcss-zindex</code>设置为<code>false</code>, 否则<code>z-index</code>的值就会重置为1</p>
+<h3 id="3-2-7-postcss-aspect-ratio-mini"><a class="header-anchor" href="#3-2-7-postcss-aspect-ratio-mini">¶</a>3.2.7 <code>postcss-aspect-ratio-mini</code></h3>
+<p>       处理元素容器宽高比</p>
+<h3 id="3-2-8-postcss-write-svg"><a class="header-anchor" href="#3-2-8-postcss-write-svg">¶</a>3.2.8 <code>postcss-write-svg</code></h3>
+<p>       处理移动端1px的解决方案,该插件主要使用的是border-image和background来做1px的相关处理</p>
+<h3 id="3-2-9-postcss-viewport-units"><a class="header-anchor" href="#3-2-9-postcss-viewport-units">¶</a>3.2.9 <code>postcss-viewport-units</code></h3>
+<p>       给CSS的属性添加content的属性，配合viewport-units-buggyfill库给vw、vh、vmin和vmax做适配的操作, 这是一个前面提到的解决兼容性的核心插件</p>
+<h1>四. 大漠老师vw适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D postcss-aspect-ratio-mini postcss-px-to-viewport postcss-write-svg postcss-cssnext postcss-viewport-units cssnano</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// your-project/.postcssrc.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="string">"plugins"</span>: &#123;</span><br><span class="line">        <span class="string">"postcss-import"</span>: &#123;&#125;,</span><br><span class="line">        <span class="string">"postcss-url"</span>: &#123;&#125;,</span><br><span class="line">        <span class="string">"postcss-aspect-ratio-mini"</span>: &#123;&#125;, </span><br><span class="line">        <span class="string">"postcss-write-svg"</span>: &#123;</span><br><span class="line">            utf8: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">"postcss-cssnext"</span>: &#123;&#125;,</span><br><span class="line">        <span class="string">"postcss-px-to-viewport"</span>: &#123;</span><br><span class="line">            viewportWidth: <span class="number">375</span>,     <span class="comment">// (Number) The width of the viewport.</span></span><br><span class="line">            viewportHeight: <span class="number">667</span>,    <span class="comment">// (Number) The height of the viewport.</span></span><br><span class="line">            unitPrecision: <span class="number">3</span>,       <span class="comment">// (Number) The decimal numbers to allow the REM units to grow to.</span></span><br><span class="line">            viewportUnit: <span class="string">'vw'</span>,     <span class="comment">// (String) Expected units.</span></span><br><span class="line">            selectorBlackList: [<span class="string">'.ignore'</span>, <span class="string">'.hairlines'</span>],  <span class="comment">// (Array) The selectors to ignore and leave as px.</span></span><br><span class="line">            minPixelValue: <span class="number">1</span>,       <span class="comment">// (Number) Set the minimum pixel value to replace.</span></span><br><span class="line">            mediaQuery: <span class="literal">false</span>       <span class="comment">// (Boolean) Allow px to be converted in media queries.</span></span><br><span class="line">        &#125;, </span><br><span class="line">        <span class="string">"postcss-viewport-units"</span>:&#123;&#125;,</span><br><span class="line">        <span class="string">"cssnano"</span>: &#123;</span><br><span class="line">            preset: <span class="string">"advanced"</span>,</span><br><span class="line">            autoprefixer: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"postcss-zindex"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>       如果你跟着大漠老师一顿猛操作, 安装依赖时你会发现可能会出现以下问题:</p>
+<h2 id="4-1-postcss-cssnext插件被废弃-推荐用postcss-preset-env"><a class="header-anchor" href="#4-1-postcss-cssnext插件被废弃-推荐用postcss-preset-env">¶</a>4.1 <code>postcss-cssnext</code>插件被废弃, 推荐用<code>postcss-preset-env</code></h2>
+<blockquote>
+<p>问题:</p>
+</blockquote>
+<p><img src="/images/vw-ajust/preset-env.png" alt="preset-env"></p>
+<blockquote>
+<p>解决:</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm un -D postcss-cssnext</span><br><span class="line">$ npm i -D postcss-preset-env</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// your-project/.postcssrc.js</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"plugins"</span>: &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    - <span class="string">"postcss-cssnext"</span>: &#123;&#125;,</span><br><span class="line">    + <span class="string">"postcss-preset-env"</span>: &#123;&#125;,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-如果你用vue-cli3会-缺少部分-依赖"><a class="header-anchor" href="#4-2-如果你用vue-cli3会-缺少部分-依赖">¶</a>4.2 如果你用<code>vue cli3</code>会缺少部分依赖</h2>
+<blockquote>
+<p>问题:</p>
+</blockquote>
+<p><img src="/images/vw-ajust/err-no-postcss-import.png" alt="preset-env"><br>
+<img src="/images/vw-ajust/err-no-postcss-url.png" alt="preset-env"></p>
+<blockquote>
+<p>解决:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -D postcss-<span class="keyword">import</span> postcss-url</span><br></pre></td></tr></table></figure>
+<h2 id="4-3-cssnano-的preset使用了advanced-需要安装对应依赖"><a class="header-anchor" href="#4-3-cssnano-的preset使用了advanced-需要安装对应依赖">¶</a>4.3 <code>cssnano</code>的<code>preset</code>使用了<code>advanced</code>, 需要安装对应依赖</h2>
+<blockquote>
+<p>问题:</p>
+</blockquote>
+<p><img src="/images/vw-ajust/err-preset-advanced.png" alt="cssnano-advance"></p>
+<blockquote>
+<p>解决:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -D cssnano-preset-advanced</span><br></pre></td></tr></table></figure>
+<h1>五. 我为小伙伴们准备的一波福利: 开箱<img class="github-emoji" title="package" alt="package" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8" height="20" width="20">即用的<code>vw</code>配置<code>webpack</code>构建</h1>
+<h2 id="5-1-采用最新npm依赖版本的豪华配置-可npm-check-update"><a class="header-anchor" href="#5-1-采用最新npm依赖版本的豪华配置-可npm-check-update">¶</a>5.1 采用最新<code>npm</code>依赖版本的豪华配置, 可<code>npm-check-update</code></h2>
+<p><a href="https://github.com/8bulbs/jsl-webpack-vue-h5" target="_blank" rel="noopener">jsl-webpack-vue-h5<img class="github-emoji" title="sunglasses" alt="sunglasses" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8" height="20" width="20"> 欢迎star<img class="github-emoji" title="star" alt="star" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png?v8" height="20" width="20"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"@babel/core"</span>: <span class="string">"^7.1.6"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^8.0.4"</span>,</span><br><span class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^15.4.2"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^4.25.1"</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-2-采用vue-cli2的配置"><a class="header-anchor" href="#5-2-采用vue-cli2的配置">¶</a>5.2 采用<code>vue-cli2</code>的配置</h2>
+<p><a href="https://github.com/8bulbs/jsl-vue-cli2-vw-layout" target="_blank" rel="noopener">jsl-vue-cli2-vw-layout</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel/core"</span>: <span class="string">"^6.22.1"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^7.1.1"</span>,</span><br><span class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^13.3.0"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^3.6.0"</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-3-采用vue-cli3的配置"><a class="header-anchor" href="#5-3-采用vue-cli3的配置">¶</a>5.3 采用<code>vue-cli3</code>的配置</h2>
+<p><a href="https://github.com/8bulbs/jsl-vue-cli3-vw-layout" target="_blank" rel="noopener">jsl-vue-cli3-vw-layout</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"@vue/cli-plugin-babel"</span>: <span class="string">"^3.1.1"</span>,</span><br><span class="line">    <span class="string">"@vue/cli-service"</span>: <span class="string">"^3.1.4"</span>,</span><br><span class="line">    <span class="comment">// ..</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h1>六. 实际开发中<code>vw</code>适配的应用</h1>
+<h2 id="6-1-在css中写样式"><a class="header-anchor" href="#6-1-在css中写样式">¶</a>6.1 在<code>css</code>中写样式</h2>
+<p>       在实际撸码过程，不需要进行任何的计算，直接在代码中根据UI稿写px, 如</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: .<span class="number">5px</span> solid black;</span><br><span class="line">    <span class="attribute">border-bottom-width</span>: <span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>       编译出来的CSS：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: .<span class="number">5px</span> solid <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">border-bottom-width</span>: <span class="number">1.667vw</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">3.733vw</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">5.333vw</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-在js和template中写样式-我们定义一个转换数字为vw的工具类"><a class="header-anchor" href="#6-2-在js和template中写样式-我们定义一个转换数字为vw的工具类">¶</a>6.2 在<code>js</code>和<code>template</code>中写样式, 我们定义一个转换数字为vw的工具类</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// your project/src/shared/utils.js</span></span><br><span class="line"><span class="keyword">const</span> toVw = <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> ((<span class="built_in">window</span>.Number(num).toFixed(<span class="number">5</span>) / <span class="number">375</span>) * <span class="number">100</span>).toFixed(<span class="number">5</span>) + <span class="string">'vw'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> UTILS = &#123; toVw &#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> UTILS</span><br><span class="line"></span><br><span class="line"><span class="comment">// your project/src/components/test.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div</span><br><span class="line">    :style=<span class="string">"&#123;</span></span><br><span class="line"><span class="string">        width: toVw(size),</span></span><br><span class="line"><span class="string">        height: toVw(size)</span></span><br><span class="line"><span class="string">      &#125;"</span></span><br><span class="line">  &gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script type=<span class="string">"text/ecmascript-6"</span>&gt;</span><br><span class="line"><span class="keyword">import</span> UTILS <span class="keyword">from</span> <span class="string">'shared/utils'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    size: &#123;</span><br><span class="line">      <span class="keyword">default</span>: <span class="number">15</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    toVw (num) &#123;</span><br><span class="line">      <span class="keyword">return</span> UTILS.toVw(num)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h1>七. <code>vw</code>适配的坑以及爬坑姿势(欢迎补充<a href="mailto:atbulbs@gmail.com" target="_blank" rel="noopener">atbulbs@gmail.com</a>)</h1>
+<h2 id="7-1-注意viewport的变化"><a class="header-anchor" href="#7-1-注意viewport的变化">¶</a>7.1 注意<code>viewport</code>的变化</h2>
+<p>       如果你在样式中使用了vh单位, 请注意某些webView里键盘弹出时, 100vh对应的实际高度会变小</p>
+<h2 id="7-2-html2canvas"><a class="header-anchor" href="#7-2-html2canvas">¶</a>7.2 <code>html2canvas</code></h2>
+<p>       如果你有在前端截屏的需求, 刚好你用到了html2canvas插件, 而且刚好要适配ios低版本机型, 请使用0.5.0-beta4版本, 并且把加了css-content的标签的内容置空</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.target-el</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>八. 说好的彩<img class="github-emoji" title="lollipop" alt="lollipop" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f36d.png?v8" height="20" width="20">蛋<img class="github-emoji" title="egg" alt="egg" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f95a.png?v8" height="20" width="20"></h1>
+<h2 id="8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码"><a class="header-anchor" href="#8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码">¶</a>8.1 彩蛋a: <code>stylus</code>让你用更优雅<img class="github-emoji" title="bowtie" alt="bowtie" src="https://assets-cdn.github.com/images/icons/emoji/bowtie.png?v8" height="20" width="20">姿势的撸业务代码</h2>
+<h2 id="8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20"><a class="header-anchor" href="#8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20">¶</a>8.2 彩蛋b: <code>user snippets</code> 和 <code>emmet</code>/<code>zen coding</code> 让你成为风一般的爱(ban)码(zhuan)仕(de)<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20"></h2>
+<p>happy hacking~!</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/11/18/2018-11-11你想成为风一般的爱(ban)码(zhuan)仕(de)么/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="8bubls(Jason Liao)">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/18/2018-11-11你想成为风一般的爱(ban)码(zhuan)仕(de)么/" itemprop="url">你想成为风一般的爱(ban)码(zhuan)仕(de)么</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T12:15:17+08:00">
+                2018-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/开发效率/" itemprop="url" rel="index">
+                    <span itemprop="name">开发效率</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>user snippets用户自定义代码片段, 贴上我的</h1>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.json</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// Place your snippets for vue here. Each snippet is defined under a snippet name and has a prefix, body and </span></span><br><span class="line">	<span class="comment">// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:</span></span><br><span class="line">	<span class="comment">// $1, $2 for tab stops, $0 for the final cursor position, and $&#123;1:label&#125;, $&#123;2:another&#125; for placeholders. Placeholders with the </span></span><br><span class="line">	<span class="comment">// same ids are connected.</span></span><br><span class="line">	<span class="comment">// Example:</span></span><br><span class="line">	<span class="comment">// "Print to console": &#123;</span></span><br><span class="line">	<span class="comment">// 	"prefix": "log",</span></span><br><span class="line">	<span class="comment">// 	"body": [</span></span><br><span class="line">	<span class="comment">// 		"console.log('$1');",</span></span><br><span class="line">	<span class="comment">// 		"$2"</span></span><br><span class="line">	<span class="comment">// 	],</span></span><br><span class="line">	<span class="comment">// 	"description": "Log output to console"</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line">	<span class="string">"Vue"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"vue"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"&lt;template&gt;"</span>,</span><br><span class="line">			<span class="string">"\t&lt;div class=\"$1-root\"&gt;"</span>,</span><br><span class="line">			<span class="string">"\t\t"</span>,</span><br><span class="line">  		<span class="string">"\t&lt;/div&gt;"</span>,</span><br><span class="line">			<span class="string">"&lt;/template&gt;"</span>,</span><br><span class="line">			<span class="string">""</span>,</span><br><span class="line">			<span class="string">"&lt;script type=\"text/ecmascript-6\"&gt;"</span>,</span><br><span class="line">			<span class="string">"export default &#123;"</span>,</span><br><span class="line">			<span class="string">"\tdata () &#123;"</span>,	</span><br><span class="line">			<span class="string">"\t\treturn &#123;"</span>,		</span><br><span class="line">			<span class="string">"\t\t\tdata: ''"</span>,			</span><br><span class="line">			<span class="string">"\t\t&#125;"</span>,	</span><br><span class="line">			<span class="string">"\t&#125;"</span>,</span><br><span class="line">			<span class="string">"&#125;"</span>,</span><br><span class="line">			<span class="string">"&lt;/script&gt;"</span>,</span><br><span class="line">			<span class="string">""</span>,</span><br><span class="line">			<span class="string">"&lt;style scoped lang=\"stylus\" rel=\"stylesheet/stylus\"&gt;"</span>,</span><br><span class="line">			<span class="string">"@import \"~styles/mixin\""</span>,</span><br><span class="line">			<span class="string">""</span>,</span><br><span class="line">			<span class="string">".$1-root"</span>,</span><br><span class="line">			<span class="string">"&lt;/style&gt;"</span>,</span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"vue"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Print to console"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"lg"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"console.log('$1')"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"Log output to console"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Print to warn"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"cw"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"console.warn('$1')"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"Print to warn"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Arrow function"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"af"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"($1) =&gt; &#123;"</span>,</span><br><span class="line">			<span class="string">"  $2"</span>,</span><br><span class="line">			<span class="string">"&#125;"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"Arrow function"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Let"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"l"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"let $1 = $2"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"Let"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Const"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"c"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"const $1 = $2"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"Const"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Var"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"v"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"var $1 = $2"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"Var"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Import"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"i"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"import $1 from '$2'"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"import"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Import object"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"im"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"import &#123; $1 &#125; from '$2'"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"import object"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Export"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"e"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"export $1"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"export"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Function"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"fn"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"function $1 ($2) &#123;"</span>,</span><br><span class="line">			<span class="string">"\t$3"</span>,</span><br><span class="line">			<span class="string">"&#125;"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"function"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Arrow function"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"af"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"($1) =&gt; &#123;"</span>,</span><br><span class="line">			<span class="string">"\t$2"</span>,</span><br><span class="line">			<span class="string">"&#125;"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"arrow function"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Return"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"r"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"return $1"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"return"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"If"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"if"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"if ($1) &#123;"</span>,</span><br><span class="line">			<span class="string">"  $2"</span>,</span><br><span class="line">			<span class="string">"&#125;"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"if"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="string">"Comment"</span>: &#123;</span><br><span class="line">		<span class="string">"prefix"</span>: <span class="string">"/"</span>,</span><br><span class="line">		<span class="string">"body"</span>: [</span><br><span class="line">			<span class="string">"/**"</span>,</span><br><span class="line">			<span class="string">" * $1"</span>,</span><br><span class="line">			<span class="string">" **/"</span></span><br><span class="line">		],</span><br><span class="line">		<span class="string">"description"</span>: <span class="string">"comment"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>emmet / zen coding</h1>
+<h2 id="html简写"><a class="header-anchor" href="#html简写">¶</a>html简写</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// '#' 创建一个id特性</span></span><br><span class="line"><span class="comment">// '.' 创建一个类特性</span></span><br><span class="line"><span class="comment">// '[]' 创建一个自定义特性</span></span><br><span class="line"><span class="comment">// '&gt;' 创建一个子元素</span></span><br><span class="line"><span class="comment">// '+' 创建一个兄弟元素</span></span><br><span class="line"><span class="comment">// '^' 提升元素层次</span></span><br><span class="line"><span class="comment">// '*' 相当于乘号,会创建n次相同的东西</span></span><br><span class="line"><span class="comment">// '$' 代替一个自增的数字</span></span><br><span class="line"><span class="comment">// '$$' 用于有填充位的数字比如00,01</span></span><br><span class="line"><span class="comment">// '&#123;&#125;' 创建元素的文本</span></span><br><span class="line"><span class="comment">// 示例</span></span><br><span class="line"><span class="comment">// ul#container&gt;li.item.highlight[data="" role=""]&#123;text$&#125;*5^ol&gt;li*2</span></span><br><span class="line"><span class="comment">// 效果</span></span><br><span class="line">&lt;ul id=<span class="string">"container"</span>&gt;</span><br><span class="line">  &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"item highlight"</span> data=<span class="string">""</span> role=<span class="string">""</span>&gt;text1&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;li class="item highlight" data="" role=""&gt;text2&lt;/</span>li&gt;</span><br><span class="line">  &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"item highlight"</span> data=<span class="string">""</span> role=<span class="string">""</span>&gt;text3&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">  &lt;li class="item highlight" data="" role=""&gt;text4&lt;/</span>li&gt;</span><br><span class="line">  &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"item highlight"</span> data=<span class="string">""</span> role=<span class="string">""</span>&gt;text5&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">  &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;<span class="regexp">/ol&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="css简写"><a class="header-anchor" href="#css简写">¶</a>css简写</h2>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// m0              </span><br><span class="line">// p0       </span><br><span class="line">// w100p     </span><br><span class="line">// h100p    </span><br><span class="line">// w100     </span><br><span class="line">// h100    </span><br><span class="line">// fl     </span><br><span class="line">// fr       </span><br><span class="line">// bgc    </span><br><span class="line">// l300    </span><br><span class="line">// r300      </span><br><span class="line">// mb300    </span><br><span class="line">// df    </span><br><span class="line">// jcsb      </span><br><span class="line">// dt </span><br><span class="line">// 效果</span><br><span class="line"><span class="selector-tag">width</span>: 100<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">margin</span>: 0;</span><br><span class="line"><span class="selector-tag">padding</span>: 0;</span><br><span class="line"><span class="selector-tag">width</span>: 100%;</span><br><span class="line"><span class="selector-tag">height</span>: 100%;</span><br><span class="line"><span class="selector-tag">width</span>: 100<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">height</span>: 100<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line"><span class="selector-tag">float</span>: <span class="selector-tag">right</span>;</span><br><span class="line"><span class="selector-tag">background-color</span>: <span class="selector-id">#fff</span>;</span><br><span class="line"><span class="selector-tag">left</span>: 300<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">right</span>: 300<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">margin-bottom</span>: 300<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">flex</span>;</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-between</span>;</span><br><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">table</span>;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/25/npm tools/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -721,303 +1115,6 @@ protected 只能在类的内部和子类访问</li>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/17/mac系统快捷键/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="8bulbs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/17/mac系统快捷键/" itemprop="url">mac系统快捷键</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T16:08:17+08:00">
-                2018-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/mac/" itemprop="url" rel="index">
-                    <span itemprop="name">mac</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li>关闭窗口 / 标签 <code>command + W</code></li>
-<li>浏览器 / 终端 新建标签 <code>command + T</code></li>
-<li>mini窗口最小化 <code>command + M</code></li>
-<li>窗口最大化和还原 <code>command + ctrol + F</code></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/17/mac系统快捷键/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/17/linux避免误删/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="8bulbs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/17/linux避免误删/" itemprop="url">linux避免误删</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T16:08:17+08:00">
-                2018-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ <span class="built_in">cd</span> ../../home</span><br><span class="line">$ mkdir -p ~/.Trash</span><br><span class="line">$ vi ~/.bashrc</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/17/linux避免误删/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/17/mac vscode快捷键/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1122,307 +1219,6 @@ protected 只能在类的内部和子类访问</li>
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/17/mac iterm2快捷键/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="8bulbs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/17/mac iterm2快捷键/" itemprop="url">mac iterm2快捷键</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T16:08:17+08:00">
-                2018-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/mac/" itemprop="url" rel="index">
-                    <span itemprop="name">mac</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>切换标签 <code>command + left / right</code></li>
-</ul>
-<p>参考<a href="https://blog.csdn.net/ws1352864983/article/details/51512904" target="_blank" rel="noopener">https://blog.csdn.net/ws1352864983/article/details/51512904</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/17/mac chrome快捷键/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="8bulbs">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/17/mac chrome快捷键/" itemprop="url">mac chrome快捷键</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T16:08:17+08:00">
-                2018-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/mac/" itemprop="url" rel="index">
-                    <span itemprop="name">mac</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>打开 / 关闭 开发者工具 <code>option + command + I / J</code></li>
-<li>切换标签 <code>option + command + left / right</code></li>
-<li>打开新标签 <code>command + T</code></li>
-<li>打开新窗口 <code>command + N</code></li>
-<li>关闭 标签 / 窗口 <code>command + W</code></li>
-<li>打开之前关闭(tichu)的标签(chrome可记忆十个) <code>shift + command + T</code></li>
-<li>在新tab中打开链接 <code>command + leftclick</code></li>
-<li>在新窗口中打开链接 <code>shift + leftclick</code></li>
-<li>mini最小化浏览器 <code>command + M</code></li>
-<li>打开浏览器(自定义的) <code>shift + command + .</code></li>
-<li>hide隐藏浏览器 <code>command + H</code></li>
-<li>隐藏浏览器以外的app <code>option + command + H</code></li>
-</ul>
-<p>参考<a href="https://blog.csdn.net/coding1994/article/details/76223333" target="_blank" rel="noopener">https://blog.csdn.net/coding1994/article/details/76223333</a></p>
-
-          
         
       
     </div>
@@ -1623,7 +1419,7 @@ protected 只能在类的内部和子类访问</li>
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/07/29/H5开发出坑姿势集锦/">
+    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/17/linux避免误删/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="8bulbs">
@@ -1642,7 +1438,7 @@ protected 只能在类的内部和子类访问</li>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/29/H5开发出坑姿势集锦/" itemprop="url">H5开发出姿势集锦</a></h1>
+                <a class="post-title-link" href="/2018/10/17/linux避免误删/" itemprop="url">linux避免误删</a></h1>
         
 
         <div class="post-meta">
@@ -1654,8 +1450,8 @@ protected 只能在类的内部和子类访问</li>
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T16:30:17+08:00">
-                2018-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T16:08:17+08:00">
+                2018-10-17
               </time>
             
 
@@ -1677,8 +1473,8 @@ protected 只能在类的内部和子类访问</li>
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/移动端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">移动端开发</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -1715,15 +1511,10 @@ protected 只能在类的内部和子类访问</li>
 
       
         
-          <h3 id="1-图片在某些ios端webview里为空白"><a class="header-anchor" href="#1-图片在某些ios端webview里为空白">¶</a>1. 图片在某些ios端webview里为空白</h3>
-<blockquote>
-<p>a方案: 给img加父级div, 设置父级div的高宽, 再给img设置宽度100%, a方法缺点, 增加了不必要的dom元素;<br>
-b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做懒加载, 而且在微信端用户无法保存图片或者识别图片中的二维码;<br>
-总结: 根据不同的图片展示用途选择方案</p>
-</blockquote>
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ <span class="built_in">cd</span> ../../home</span><br><span class="line">$ mkdir -p ~/.Trash</span><br><span class="line">$ vi ~/.bashrc</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/29/H5开发出坑姿势集锦/" rel="contents">
+            <a class="btn" href="/2018/10/17/linux避免误删/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1761,11 +1552,307 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/17/mac系统快捷键/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="8bubls(Jason Liao)">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/mac系统快捷键/" itemprop="url">mac系统快捷键</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T16:08:17+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/mac/" itemprop="url" rel="index">
+                    <span itemprop="name">mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li>关闭窗口 / 标签 <code>command + W</code></li>
+<li>浏览器 / 终端 新建标签 <code>command + T</code></li>
+<li>mini窗口最小化 <code>command + M</code></li>
+<li>窗口最大化和还原 <code>command + ctrol + F</code></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/17/mac系统快捷键/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/10/17/mac iterm2快捷键/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="8bubls(Jason Liao)">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/mac iterm2快捷键/" itemprop="url">mac iterm2快捷键</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T16:08:17+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/mac/" itemprop="url" rel="index">
+                    <span itemprop="name">mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>切换标签 <code>command + left / right</code></li>
+</ul>
+<p>参考<a href="https://blog.csdn.net/ws1352864983/article/details/51512904" target="_blank" rel="noopener">https://blog.csdn.net/ws1352864983/article/details/51512904</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1813,7 +1900,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1826,7 +1913,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
     
 	  <a href="/categories/index.html">
 	
-      <span class="site-state-item-count">16</span>
+      <span class="site-state-item-count">17</span>
       <span class="site-state-item-name">分类</span>
     </a>
   </div>
@@ -1839,7 +1926,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
     
 	  <a href="/tags/index.html">
 	
-      <span class="site-state-item-count">22</span>
+      <span class="site-state-item-count">24</span>
       <span class="site-state-item-name">标签</span>
     </a>
   </div>

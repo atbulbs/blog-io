@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="移动端开发,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="通过阅读此篇文章, 你将有如下收获        1. 什么是vw适配        2. vw适配的兼容性        3. 如何在移动端H5项目webpack构建中引入vw适配        4. 大漠老师vw适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)        5. 我为小伙伴们准备的一波福利: 开箱即用的vw配置webpack构建">
+<meta name="keywords" content="移动端开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端vw适配方案">
+<meta property="og:url" content="https://8bulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/index.html">
+<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:description" content="通过阅读此篇文章, 你将有如下收获        1. 什么是vw适配        2. vw适配的兼容性        3. 如何在移动端H5项目webpack构建中引入vw适配        4. 大漠老师vw适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)        5. 我为小伙伴们准备的一波福利: 开箱即用的vw配置webpack构建">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8">
+<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/vw-buggyfill.png">
+<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/vw-test.png">
+<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/preset-env.png">
+<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/err-no-postcss-import.png">
+<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/err-no-postcss-url.png">
+<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/err-preset-advanced.png">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f36d.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f95a.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/bowtie.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
+<meta property="og:updated_time" content="2018-11-18T14:40:20.854Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端vw适配方案">
+<meta name="twitter:description" content="通过阅读此篇文章, 你将有如下收获        1. 什么是vw适配        2. vw适配的兼容性        3. 如何在移动端H5项目webpack构建中引入vw适配        4. 大漠老师vw适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)        5. 我为小伙伴们准备的一波福利: 开箱即用的vw配置webpack构建">
+<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    
+    
+    emojis: {
+      className: 'github-emoji'
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://8bulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/">
+
+
+
+
+
+  <title>移动端vw适配方案 | 8bubls(Jason Liao)</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">more code, more exercise, more happy</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="8bubls(Jason Liao)">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动端vw适配方案</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-18T12:15:17+08:00">
+                2018-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/移动端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">移动端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1>通过阅读此篇文章, 你将有如下收获</h1>
+<p>       1. 什么是<code>vw</code>适配<br>
+       2. <code>vw</code>适配的兼容性<br>
+       3. 如何在移动端H5项目<code>webpack</code>构建中引入<code>vw</code>适配<br>
+       4. 大漠老师<code>vw</code>适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)<br>
+       5. 我为小伙伴们准备的一波福利: 开箱<img class="github-emoji" title="package" alt="package" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8" height="20" width="20">即用的<code>vw</code>配置<code>webpack</code>构建<br>
+       6. 实际开发中<code>vw</code>适配的应用<br>
+       7. vw适配的坑以及爬坑姿势<br>
+       8. 文章末尾有彩蛋哟<img class="github-emoji" title="heart_eyes" alt="heart_eyes" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8" height="20" width="20"></p>
+<h1>一. 什么是<code>vw</code>适配</h1>
+<h2 id="1-1-vw-相对于视窗的宽度-视窗宽度是100vw-即window-innerwidth-window-innerheight大小-不包含任务栏标题栏以及底部工具栏的浏览器区域大小"><a class="header-anchor" href="#1-1-vw-相对于视窗的宽度-视窗宽度是100vw-即window-innerwidth-window-innerheight大小-不包含任务栏标题栏以及底部工具栏的浏览器区域大小">¶</a>1.1 vw 相对于视窗的宽度:视窗宽度是100vw, 即window.innerWidth/window.innerHeight大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小</h2>
+<h2 id="1-2-css世界-作者张鑫旭老师的视区相关单位vw-vh-简介以及可实际应用场景"><a class="header-anchor" href="#1-2-css世界-作者张鑫旭老师的视区相关单位vw-vh-简介以及可实际应用场景">¶</a>1.2 &lt;&lt;CSS世界&gt;&gt;作者张鑫旭老师的<a href="https://www.zhangxinxu.com/wordpress/2012/09/new-viewport-relative-units-vw-vh-vm-vmin/" target="_blank" rel="noopener">视区相关单位vw, vh…简介以及可实际应用场景</a></h2>
+<h1>二. <code>vw</code>适配的兼容性</h1>
+<h3 id="2-1-可使用viewport的polyfill方案来完美解决-postcss-viewport-units配合viewport-units-buggyfill"><a class="header-anchor" href="#2-1-可使用viewport的polyfill方案来完美解决-postcss-viewport-units配合viewport-units-buggyfill">¶</a>2.1 可使用<code>viewport</code>的polyfill方案来完美解决:<code>postcss-viewport-units</code>配合<a href="https://github.com/rodneyrehm/viewport-units-buggyfill" target="_blank" rel="noopener">viewport-units-buggyfill</a></h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -S viewport-units-buggyfill</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'viewport-units-buggyfill'</span>).init()</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-兼容的范围"><a class="header-anchor" href="#2-2-兼容的范围">¶</a>2.2 兼容的范围</h3>
+<p><img src="/images/vw-ajust/vw-buggyfill.png" alt="vw-buggyfill"></p>
+<h3 id="2-3-测试用例"><a class="header-anchor" href="#2-3-测试用例">¶</a>2.3 测试用例</h3>
+<p><img src="/images/vw-ajust/vw-test.png" alt="vw-test"></p>
+<h1>三. 如何在移动端H5项目<code>webpack</code>构建中引入<code>vw</code>适配</h1>
+<h2 id="3-1-大漠老师的原文链接"><a class="header-anchor" href="#3-1-大漠老师的原文链接">¶</a>3.1 大漠老师的原文链接</h2>
+<p><a href="https://www.w3cplus.com/mobile/vw-layout-in-vue.html" target="_blank" rel="noopener">如何在Vue项目中使用vw实现移动端适配(请戳)</a></p>
+<h2 id="3-2-大漠老师所用postcss-plugins和配置的说明"><a class="header-anchor" href="#3-2-大漠老师所用postcss-plugins和配置的说明">¶</a>3.2 大漠老师所用<code>postcss plugins</code>和配置的说明</h2>
+<h3 id="3-2-1-插一嘴-什么是postcss"><a class="header-anchor" href="#3-2-1-插一嘴-什么是postcss">¶</a>3.2.1 插一嘴, 什么是<code>postcss</code></h3>
+<p>       <code>postcss</code>是一个平台，其本身不对 <code>CSS</code>进行处理，但是通过在该平台上集成插件，可以实现对<code>CSS</code>的操作。</p>
+<h3 id="3-2-2-核心postcss-plugins-postcss-px-to-viewport"><a class="header-anchor" href="#3-2-2-核心postcss-plugins-postcss-px-to-viewport">¶</a>3.2.2 核心<code>postcss plugins</code>: <code>postcss-px-to-viewport</code></h3>
+<p>       把<code>px</code>单位转换为<code>vw</code>、<code>vh</code>、<code>vmin</code>或者<code>vmax</code>这样的视窗单位</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// your-project/.postcssrc.js</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"plugins"</span>: &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="string">"postcss-px-to-viewport"</span>: &#123;</span><br><span class="line">    viewportWidth: <span class="number">375</span>,      <span class="comment">// 视窗的宽度，对应的是我们设计稿的宽度，一般是375</span></span><br><span class="line">    viewportHeight: <span class="number">667</span>,    <span class="comment">// 视窗的高度，根据750设备的宽度来指定，一般指定667，也可以不配置</span></span><br><span class="line">    unitPrecision: <span class="number">3</span>,        <span class="comment">// 指定`px`转换为视窗单位值的小数位数(很多时候无法整除)</span></span><br><span class="line">    viewportUnit: <span class="string">'vw'</span>,      <span class="comment">// 指定需要转换成的视窗单位，建议使用vw</span></span><br><span class="line">    selectorBlackList: [<span class="string">'.ignore'</span>, <span class="string">'.hairlines'</span>],  <span class="comment">// 指定不转换为视窗单位的类，可以自定义，可以无限添加,建议定义一至两个通用的类名</span></span><br><span class="line">    minPixelValue: <span class="number">1</span>,       <span class="comment">// 小于或等于`1px`不转换为视窗单位，你也可以设置为你想要的值</span></span><br><span class="line">    mediaQuery: <span class="literal">false</span>       <span class="comment">// 允许在媒体查询中转换`px`</span></span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-2-postcss-import"><a class="header-anchor" href="#3-2-2-postcss-import">¶</a>3.2.2 <code>postcss-import</code></h3>
+<p>       解决<code>@import</code>引入路径问题, 配合<code>postcss-url</code>让你引入文件变得更轻松</p>
+<h3 id="3-2-3-postcss-url"><a class="header-anchor" href="#3-2-3-postcss-url">¶</a>3.2.3 <code>postcss-url</code></h3>
+<p>       处理文件，比如图片文件、字体文件等引用路径</p>
+<h3 id="3-2-4-autoprefixer"><a class="header-anchor" href="#3-2-4-autoprefixer">¶</a>3.2.4 <code>autoprefixer</code></h3>
+<p>       让你在编码时不再需要考虑任何浏览器前缀的问题，可以专心撸码</p>
+<h3 id="3-2-5-postcss-cssnext"><a class="header-anchor" href="#3-2-5-postcss-cssnext">¶</a>3.2.5 <code>postcss-cssnext</code></h3>
+<p>       该插件可以让我们使用<code>CSS</code>未来的特性，其会对这些特性做相关的兼容性处理</p>
+<h3 id="3-2-6-cssnano"><a class="header-anchor" href="#3-2-6-cssnano">¶</a>3.2.6 <code>cssnano</code></h3>
+<p>       压缩和清理<code>CSS</code>代码。在<code>webpack</code>中，<code>cssnano</code>和<code>css-loader</code>捆绑在一起，所以不需要自己加载它. 记得将<code>postcss-zindex</code>设置为<code>false</code>, 否则<code>z-index</code>的值就会重置为1</p>
+<h3 id="3-2-7-postcss-aspect-ratio-mini"><a class="header-anchor" href="#3-2-7-postcss-aspect-ratio-mini">¶</a>3.2.7 <code>postcss-aspect-ratio-mini</code></h3>
+<p>       处理元素容器宽高比</p>
+<h3 id="3-2-8-postcss-write-svg"><a class="header-anchor" href="#3-2-8-postcss-write-svg">¶</a>3.2.8 <code>postcss-write-svg</code></h3>
+<p>       处理移动端1px的解决方案,该插件主要使用的是border-image和background来做1px的相关处理</p>
+<h3 id="3-2-9-postcss-viewport-units"><a class="header-anchor" href="#3-2-9-postcss-viewport-units">¶</a>3.2.9 <code>postcss-viewport-units</code></h3>
+<p>       给CSS的属性添加content的属性，配合viewport-units-buggyfill库给vw、vh、vmin和vmax做适配的操作, 这是一个前面提到的解决兼容性的核心插件</p>
+<h1>四. 大漠老师vw适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)</h1>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -D postcss-aspect-ratio-mini postcss-px-to-viewport postcss-write-svg postcss-cssnext postcss-viewport-units cssnano</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// your-project/.postcssrc.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="string">"plugins"</span>: &#123;</span><br><span class="line">        <span class="string">"postcss-import"</span>: &#123;&#125;,</span><br><span class="line">        <span class="string">"postcss-url"</span>: &#123;&#125;,</span><br><span class="line">        <span class="string">"postcss-aspect-ratio-mini"</span>: &#123;&#125;, </span><br><span class="line">        <span class="string">"postcss-write-svg"</span>: &#123;</span><br><span class="line">            utf8: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="string">"postcss-cssnext"</span>: &#123;&#125;,</span><br><span class="line">        <span class="string">"postcss-px-to-viewport"</span>: &#123;</span><br><span class="line">            viewportWidth: <span class="number">375</span>,     <span class="comment">// (Number) The width of the viewport.</span></span><br><span class="line">            viewportHeight: <span class="number">667</span>,    <span class="comment">// (Number) The height of the viewport.</span></span><br><span class="line">            unitPrecision: <span class="number">3</span>,       <span class="comment">// (Number) The decimal numbers to allow the REM units to grow to.</span></span><br><span class="line">            viewportUnit: <span class="string">'vw'</span>,     <span class="comment">// (String) Expected units.</span></span><br><span class="line">            selectorBlackList: [<span class="string">'.ignore'</span>, <span class="string">'.hairlines'</span>],  <span class="comment">// (Array) The selectors to ignore and leave as px.</span></span><br><span class="line">            minPixelValue: <span class="number">1</span>,       <span class="comment">// (Number) Set the minimum pixel value to replace.</span></span><br><span class="line">            mediaQuery: <span class="literal">false</span>       <span class="comment">// (Boolean) Allow px to be converted in media queries.</span></span><br><span class="line">        &#125;, </span><br><span class="line">        <span class="string">"postcss-viewport-units"</span>:&#123;&#125;,</span><br><span class="line">        <span class="string">"cssnano"</span>: &#123;</span><br><span class="line">            preset: <span class="string">"advanced"</span>,</span><br><span class="line">            autoprefixer: <span class="literal">false</span>,</span><br><span class="line">            <span class="string">"postcss-zindex"</span>: <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>       如果你跟着大漠老师一顿猛操作, 安装依赖时你会发现可能会出现以下问题:</p>
+<h2 id="4-1-postcss-cssnext插件被废弃-推荐用postcss-preset-env"><a class="header-anchor" href="#4-1-postcss-cssnext插件被废弃-推荐用postcss-preset-env">¶</a>4.1 <code>postcss-cssnext</code>插件被废弃, 推荐用<code>postcss-preset-env</code></h2>
+<blockquote>
+<p>问题:</p>
+</blockquote>
+<p><img src="/images/vw-ajust/preset-env.png" alt="preset-env"></p>
+<blockquote>
+<p>解决:</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm un -D postcss-cssnext</span><br><span class="line">$ npm i -D postcss-preset-env</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// your-project/.postcssrc.js</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"plugins"</span>: &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    - <span class="string">"postcss-cssnext"</span>: &#123;&#125;,</span><br><span class="line">    + <span class="string">"postcss-preset-env"</span>: &#123;&#125;,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-如果你用vue-cli3会-缺少部分-依赖"><a class="header-anchor" href="#4-2-如果你用vue-cli3会-缺少部分-依赖">¶</a>4.2 如果你用<code>vue cli3</code>会缺少部分依赖</h2>
+<blockquote>
+<p>问题:</p>
+</blockquote>
+<p><img src="/images/vw-ajust/err-no-postcss-import.png" alt="preset-env"><br>
+<img src="/images/vw-ajust/err-no-postcss-url.png" alt="preset-env"></p>
+<blockquote>
+<p>解决:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -D postcss-<span class="keyword">import</span> postcss-url</span><br></pre></td></tr></table></figure>
+<h2 id="4-3-cssnano-的preset使用了advanced-需要安装对应依赖"><a class="header-anchor" href="#4-3-cssnano-的preset使用了advanced-需要安装对应依赖">¶</a>4.3 <code>cssnano</code>的<code>preset</code>使用了<code>advanced</code>, 需要安装对应依赖</h2>
+<blockquote>
+<p>问题:</p>
+</blockquote>
+<p><img src="/images/vw-ajust/err-preset-advanced.png" alt="cssnano-advance"></p>
+<blockquote>
+<p>解决:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -D cssnano-preset-advanced</span><br></pre></td></tr></table></figure>
+<h1>五. 我为小伙伴们准备的一波福利: 开箱<img class="github-emoji" title="package" alt="package" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8" height="20" width="20">即用的<code>vw</code>配置<code>webpack</code>构建</h1>
+<h2 id="5-1-采用最新npm依赖版本的豪华配置-可npm-check-update"><a class="header-anchor" href="#5-1-采用最新npm依赖版本的豪华配置-可npm-check-update">¶</a>5.1 采用最新<code>npm</code>依赖版本的豪华配置, 可<code>npm-check-update</code></h2>
+<p><a href="https://github.com/8bulbs/jsl-webpack-vue-h5" target="_blank" rel="noopener">jsl-webpack-vue-h5<img class="github-emoji" title="sunglasses" alt="sunglasses" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8" height="20" width="20"> 欢迎star<img class="github-emoji" title="star" alt="star" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png?v8" height="20" width="20"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"@babel/core"</span>: <span class="string">"^7.1.6"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^8.0.4"</span>,</span><br><span class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^15.4.2"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^4.25.1"</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-2-采用vue-cli2的配置"><a class="header-anchor" href="#5-2-采用vue-cli2的配置">¶</a>5.2 采用<code>vue-cli2</code>的配置</h2>
+<p><a href="https://github.com/8bulbs/jsl-vue-cli2-vw-layout" target="_blank" rel="noopener">jsl-vue-cli2-vw-layout</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel/core"</span>: <span class="string">"^6.22.1"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^7.1.1"</span>,</span><br><span class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^13.3.0"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^3.6.0"</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-3-采用vue-cli3的配置"><a class="header-anchor" href="#5-3-采用vue-cli3的配置">¶</a>5.3 采用<code>vue-cli3</code>的配置</h2>
+<p><a href="https://github.com/8bulbs/jsl-vue-cli3-vw-layout" target="_blank" rel="noopener">jsl-vue-cli3-vw-layout</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"@vue/cli-plugin-babel"</span>: <span class="string">"^3.1.1"</span>,</span><br><span class="line">    <span class="string">"@vue/cli-service"</span>: <span class="string">"^3.1.4"</span>,</span><br><span class="line">    <span class="comment">// ..</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h1>六. 实际开发中<code>vw</code>适配的应用</h1>
+<h2 id="6-1-在css中写样式"><a class="header-anchor" href="#6-1-在css中写样式">¶</a>6.1 在<code>css</code>中写样式</h2>
+<p>       在实际撸码过程，不需要进行任何的计算，直接在代码中根据UI稿写px, 如</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: .<span class="number">5px</span> solid black;</span><br><span class="line">    <span class="attribute">border-bottom-width</span>: <span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>       编译出来的CSS：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: .<span class="number">5px</span> solid <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">border-bottom-width</span>: <span class="number">1.667vw</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">3.733vw</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">5.333vw</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-在js和template中写样式-我们定义一个转换数字为vw的工具类"><a class="header-anchor" href="#6-2-在js和template中写样式-我们定义一个转换数字为vw的工具类">¶</a>6.2 在<code>js</code>和<code>template</code>中写样式, 我们定义一个转换数字为vw的工具类</h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// your project/src/shared/utils.js</span></span><br><span class="line"><span class="keyword">const</span> toVw = <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> ((<span class="built_in">window</span>.Number(num).toFixed(<span class="number">5</span>) / <span class="number">375</span>) * <span class="number">100</span>).toFixed(<span class="number">5</span>) + <span class="string">'vw'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> UTILS = &#123; toVw &#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> UTILS</span><br><span class="line"></span><br><span class="line"><span class="comment">// your project/src/components/test.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div</span><br><span class="line">    :style=<span class="string">"&#123;</span></span><br><span class="line"><span class="string">        width: toVw(size),</span></span><br><span class="line"><span class="string">        height: toVw(size)</span></span><br><span class="line"><span class="string">      &#125;"</span></span><br><span class="line">  &gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script type=<span class="string">"text/ecmascript-6"</span>&gt;</span><br><span class="line"><span class="keyword">import</span> UTILS <span class="keyword">from</span> <span class="string">'shared/utils'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    size: &#123;</span><br><span class="line">      <span class="keyword">default</span>: <span class="number">15</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    toVw (num) &#123;</span><br><span class="line">      <span class="keyword">return</span> UTILS.toVw(num)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h1>七. <code>vw</code>适配的坑以及爬坑姿势(欢迎补充<a href="mailto:atbulbs@gmail.com" target="_blank" rel="noopener">atbulbs@gmail.com</a>)</h1>
+<h2 id="7-1-注意viewport的变化"><a class="header-anchor" href="#7-1-注意viewport的变化">¶</a>7.1 注意<code>viewport</code>的变化</h2>
+<p>       如果你在样式中使用了vh单位, 请注意某些webView里键盘弹出时, 100vh对应的实际高度会变小</p>
+<h2 id="7-2-html2canvas"><a class="header-anchor" href="#7-2-html2canvas">¶</a>7.2 <code>html2canvas</code></h2>
+<p>       如果你有在前端截屏的需求, 刚好你用到了html2canvas插件, 而且刚好要适配ios低版本机型, 请使用0.5.0-beta4版本, 并且把加了css-content的标签的内容置空</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.target-el</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>八. 说好的彩<img class="github-emoji" title="lollipop" alt="lollipop" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f36d.png?v8" height="20" width="20">蛋<img class="github-emoji" title="egg" alt="egg" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f95a.png?v8" height="20" width="20"></h1>
+<h2 id="8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码"><a class="header-anchor" href="#8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码">¶</a>8.1 彩蛋a: <code>stylus</code>让你用更优雅<img class="github-emoji" title="bowtie" alt="bowtie" src="https://assets-cdn.github.com/images/icons/emoji/bowtie.png?v8" height="20" width="20">姿势的撸业务代码</h2>
+<h2 id="8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20"><a class="header-anchor" href="#8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20">¶</a>8.2 彩蛋b: <code>user snippets</code> 和 <code>emmet</code>/<code>zen coding</code> 让你成为风一般的爱(ban)码(zhuan)仕(de)<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20"></h2>
+<p>happy hacking~!</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>点击打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="8bulbs 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="8bulbs 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/移动端开发/" rel="tag"># 移动端开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/18/2018-11-11你想成为风一般的爱(ban)码(zhuan)仕(de)么/" rel="next" title="你想成为风一般的爱(ban)码(zhuan)仕(de)么">
+                <i class="fa fa-chevron-left"></i> 你想成为风一般的爱(ban)码(zhuan)仕(de)么
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="8bulbs">
+            
+              <p class="site-author-name" itemprop="name">8bulbs</p>
+              <p class="site-description motion-element" itemprop="description"></></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+  
+  
+  <div class="site-state-item site-state-categories">
+    
+	  <a href="/categories/index.html">
+	
+      <span class="site-state-item-count">17</span>
+      <span class="site-state-item-name">分类</span>
+    </a>
+  </div>
+
+
+
+  
+  
+  <div class="site-state-item site-state-tags">
+    
+	  <a href="/tags/index.html">
+	
+      <span class="site-state-item-count">24</span>
+      <span class="site-state-item-name">标签</span>
+    </a>
+  </div>
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/8bulbs" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:atbulbs@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">通过阅读此篇文章, 你将有如下收获</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">一. 什么是vw适配</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-vw-相对于视窗的宽度-视窗宽度是100vw-即window-innerwidth-window-innerheight大小-不包含任务栏标题栏以及底部工具栏的浏览器区域大小"><span class="nav-number">2.1.</span> <span class="nav-text">¶1.1 vw 相对于视窗的宽度:视窗宽度是100vw, 即window.innerWidth/window.innerHeight大小，不包含任务栏标题栏以及底部工具栏的浏览器区域大小</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-css世界-作者张鑫旭老师的视区相关单位vw-vh-简介以及可实际应用场景"><span class="nav-number">2.2.</span> <span class="nav-text">¶1.2 &lt;&lt;CSS世界&gt;&gt;作者张鑫旭老师的视区相关单位vw, vh…简介以及可实际应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">二. vw适配的兼容性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-可使用viewport的polyfill方案来完美解决-postcss-viewport-units配合viewport-units-buggyfill"><span class="nav-number">3.0.1.</span> <span class="nav-text">¶2.1 可使用viewport的polyfill方案来完美解决:postcss-viewport-units配合viewport-units-buggyfill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-兼容的范围"><span class="nav-number">3.0.2.</span> <span class="nav-text">¶2.2 兼容的范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-测试用例"><span class="nav-number">3.0.3.</span> <span class="nav-text">¶2.3 测试用例</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">三. 如何在移动端H5项目webpack构建中引入vw适配</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-大漠老师的原文链接"><span class="nav-number">4.1.</span> <span class="nav-text">¶3.1 大漠老师的原文链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-大漠老师所用postcss-plugins和配置的说明"><span class="nav-number">4.2.</span> <span class="nav-text">¶3.2 大漠老师所用postcss plugins和配置的说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-插一嘴-什么是postcss"><span class="nav-number">4.2.1.</span> <span class="nav-text">¶3.2.1 插一嘴, 什么是postcss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-核心postcss-plugins-postcss-px-to-viewport"><span class="nav-number">4.2.2.</span> <span class="nav-text">¶3.2.2 核心postcss plugins: postcss-px-to-viewport</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-postcss-import"><span class="nav-number">4.2.3.</span> <span class="nav-text">¶3.2.2 postcss-import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-postcss-url"><span class="nav-number">4.2.4.</span> <span class="nav-text">¶3.2.3 postcss-url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-autoprefixer"><span class="nav-number">4.2.5.</span> <span class="nav-text">¶3.2.4 autoprefixer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-5-postcss-cssnext"><span class="nav-number">4.2.6.</span> <span class="nav-text">¶3.2.5 postcss-cssnext</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-6-cssnano"><span class="nav-number">4.2.7.</span> <span class="nav-text">¶3.2.6 cssnano</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-7-postcss-aspect-ratio-mini"><span class="nav-number">4.2.8.</span> <span class="nav-text">¶3.2.7 postcss-aspect-ratio-mini</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-8-postcss-write-svg"><span class="nav-number">4.2.9.</span> <span class="nav-text">¶3.2.8 postcss-write-svg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-9-postcss-viewport-units"><span class="nav-number">4.2.10.</span> <span class="nav-text">¶3.2.9 postcss-viewport-units</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">四. 大漠老师vw适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-postcss-cssnext插件被废弃-推荐用postcss-preset-env"><span class="nav-number">5.1.</span> <span class="nav-text">¶4.1 postcss-cssnext插件被废弃, 推荐用postcss-preset-env</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-如果你用vue-cli3会-缺少部分-依赖"><span class="nav-number">5.2.</span> <span class="nav-text">¶4.2 如果你用vue cli3会缺少部分依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-cssnano-的preset使用了advanced-需要安装对应依赖"><span class="nav-number">5.3.</span> <span class="nav-text">¶4.3 cssnano的preset使用了advanced, 需要安装对应依赖</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">五. 我为小伙伴们准备的一波福利: 开箱即用的vw配置webpack构建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-采用最新npm依赖版本的豪华配置-可npm-check-update"><span class="nav-number">6.1.</span> <span class="nav-text">¶5.1 采用最新npm依赖版本的豪华配置, 可npm-check-update</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-采用vue-cli2的配置"><span class="nav-number">6.2.</span> <span class="nav-text">¶5.2 采用vue-cli2的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-采用vue-cli3的配置"><span class="nav-number">6.3.</span> <span class="nav-text">¶5.3 采用vue-cli3的配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">六. 实际开发中vw适配的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-在css中写样式"><span class="nav-number">7.1.</span> <span class="nav-text">¶6.1 在css中写样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-在js和template中写样式-我们定义一个转换数字为vw的工具类"><span class="nav-number">7.2.</span> <span class="nav-text">¶6.2 在js和template中写样式, 我们定义一个转换数字为vw的工具类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">七. vw适配的坑以及爬坑姿势(欢迎补充atbulbs@gmail.com)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-注意viewport的变化"><span class="nav-number">8.1.</span> <span class="nav-text">¶7.1 注意viewport的变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-html2canvas"><span class="nav-number">8.2.</span> <span class="nav-text">¶7.2 html2canvas</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">八. 说好的彩蛋</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码"><span class="nav-number">9.1.</span> <span class="nav-text">¶8.1 彩蛋a: stylus让你用更优雅姿势的撸业务代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20"><span class="nav-number">9.2.</span> <span class="nav-text">¶8.2 彩蛋b: user snippets 和 emmet/zen coding 让你成为风一般的爱(ban)码(zhuan)仕(de)</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">8bulbs</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
