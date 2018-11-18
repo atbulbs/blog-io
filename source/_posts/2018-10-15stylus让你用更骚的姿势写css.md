@@ -9,6 +9,7 @@ categories: 开发效率
 [张鑫旭老师的stylus文档](https://www.zhangxinxu.com/jq/stylus/)
 
 # 我这里有一波祖传的mixin, 可以让你写更精简可复用的css代码, 这位少侠请了解一下
+<!-- more -->
 ```css
 
 tac()

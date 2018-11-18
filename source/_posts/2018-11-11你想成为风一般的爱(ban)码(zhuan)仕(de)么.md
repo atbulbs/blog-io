@@ -6,6 +6,7 @@ categories: 开发效率
 ---
 
 # user snippets用户自定义代码片段, 贴上我的
+<!-- more -->
 ```javascript
 // vue.json
 {
@@ -190,22 +191,22 @@ categories: 开发效率
 ```
 ## css简写
 ```css
-// m0              
-// p0       
-// w100p     
-// h100p    
-// w100     
-// h100    
-// fl     
-// fr       
-// bgc    
-// l300    
-// r300      
-// mb300    
-// df    
-// jcsb      
-// dt 
-// 效果
+/* m0 */
+/* p0 */
+/* w100p */
+/* h100p */
+/* w100 */
+/* h100 */
+/* fl */
+/* fr */
+/* bgc */
+/* l300 */
+/* r300 */
+/* mb300 */
+/* df */
+/* jcsb */
+/* dt  */
+/* duang~ 效果 */
 width: 100px;
 margin: 0;
 padding: 0;
