@@ -160,6 +160,12 @@ categories: 开发效率
 	}
 }
 ```
+# 用法
+&#160; &#160; &#160; &#160;新建一个`test.vue`文件输入`vue`, 你会看到提示
+![vue](/images/user-snippets/vue.png)
+&#160; &#160; &#160; &#160;然后`tab`, 就会duang~, 有了如下代码, 注意$1出会用光标占位
+![template](/images/user-snippets/template.png)
+&#160; &#160; &#160; &#160;同理, `lg` + `tab`你会得到你经常使用的断点, `af` + `tab`你会得到一个风骚的箭头函数
 
 # emmet / zen coding 
 ## html简写

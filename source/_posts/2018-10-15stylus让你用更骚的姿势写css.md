@@ -236,3 +236,58 @@ full-screen()
   position relative
 
 ```
+# 用法
+```javascript
+<template>
+  <div class="sub-path-card-root">
+    <div 
+      class="pic" 
+      :style="{ backgroundImage: `url(${ imgUrl })` }"
+    >
+    </div>
+    <div class="txt">{{ name }}</div>
+    <jsl-stars class="stars" :score=score />
+  </div>
+</template>
+
+
+<script type="text/ecmascript-6">
+import JslStars from 'base-components/stars/stars'
+
+export default {
+  props: ['img', 'score', 'name', 'imgUrl'],
+  data () {
+    return {
+      data: ''
+    }
+  },
+  components: {
+    JslStars
+  }
+}
+</script>
+
+
+<style scoped lang="stylus" rel="stylesheet/stylus">
+@import "~styles/mixin"
+
+.sub-path-card-root
+  width 101px
+  margin 0 auto
+  .pic
+    margin 0 auto
+    has-bg(101px, 101px)
+  .bg1
+    bg-img('bg1')
+  .bg2
+    bg-img('bg2')
+  .bg3
+    bg-img('bg3')
+  .txt
+    txt(43px, 22px, 16px)
+    margin 7px auto
+    color #fff
+  .stars
+    margin 9px auto 20px
+</style>
+```
