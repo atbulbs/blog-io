@@ -18,8 +18,8 @@ categories: Phaser
 Phaser3官方API文档[https://github.com/photonstorm/phaser3-docs/tree/master/docs](https://github.com/photonstorm/phaser3-docs/tree/master/docs)
 
 # 我用webpack和vue模块化改版官方的Phaser3入门游戏，带详细注释
-在线demo地址[https://8bulbs.github.io/vue-phaser-demo/index.html](https://8bulbs.github.io/vue-phaser-demo/index.html)
-git仓库地址[https://github.com/8bulbs/vue-phaser](https://github.com/8bulbs/vue-phaser)
+在线demo地址[https://atbulbs.github.io/vue-phaser-demo/index.html](https://atbulbs.github.io/vue-phaser-demo/index.html)
+git仓库地址[https://github.com/atbulbs/vue-phaser](https://github.com/atbulbs/vue-phaser)
 
 # 坑
 * 资源文件被base64压缩后Phaser无法找到， 注意webpack的url-loader配置

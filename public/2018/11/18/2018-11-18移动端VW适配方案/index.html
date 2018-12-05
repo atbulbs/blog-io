@@ -83,20 +83,20 @@
 <meta name="keywords" content="移动端开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端vw适配方案">
-<meta property="og:url" content="https://8bulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/index.html">
+<meta property="og:url" content="https://atbulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/index.html">
 <meta property="og:site_name" content="8bubls(Jason Liao)">
 <meta property="og:description" content="通过阅读此篇文章, 你将有如下收获         1. 什么是vw适配        2. vw适配的兼容性        3. 如何在移动端H5项目webpack构建中引入vw适配        4. 大漠老师vw适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)        5. 我为小伙伴们准备的一波福利: 开箱即用的vw配置webpack构建">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8">
-<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/pvu.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/vub.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/vw-buggyfill.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/vw-test.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/preset-env.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/err-no-postcss-import.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/err-no-postcss-url.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/vw-ajust/err-preset-advanced.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/vw-ajust/pvu.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/vw-ajust/vub.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/vw-ajust/vw-buggyfill.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/vw-ajust/vw-test.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/vw-ajust/preset-env.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/vw-ajust/err-no-postcss-import.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/vw-ajust/err-no-postcss-url.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/vw-ajust/err-preset-advanced.png">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png?v8">
@@ -104,7 +104,7 @@
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f95a.png?v8">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/bowtie.png?v8">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
-<meta property="og:updated_time" content="2018-11-30T00:34:41.748Z">
+<meta property="og:updated_time" content="2018-12-05T07:42:53.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端vw适配方案">
 <meta name="twitter:description" content="通过阅读此篇文章, 你将有如下收获         1. 什么是vw适配        2. vw适配的兼容性        3. 如何在移动端H5项目webpack构建中引入vw适配        4. 大漠老师vw适配方案中依赖安装的注(pa)意(keng)事(zi)项(shi)        5. 我为小伙伴们准备的一波福利: 开箱即用的vw配置webpack构建">
@@ -143,7 +143,7 @@
 
 
 
-  <link rel="canonical" href="https://8bulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/">
+  <link rel="canonical" href="https://atbulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/">
 
 
 
@@ -286,10 +286,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/">
+    <link itemprop="mainEntityOfPage" href="https://atbulbs.github.io/2018/11/18/2018-11-18移动端VW适配方案/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="name" content="atbulbs">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
@@ -464,13 +464,13 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -D cssnano-preset-advanced</span><br></pre></td></tr></table></figure>
 <h1>五. 我为小伙伴们准备的一波福利: 开箱<img class="github-emoji" title="package" alt="package" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v8" height="20" width="20">即用的<code>vw</code>配置<code>webpack</code>构建</h1>
 <h2 id="5-1-采用最新npm依赖版本的豪华配置-可npm-check-update"><a class="header-anchor" href="#5-1-采用最新npm依赖版本的豪华配置-可npm-check-update">¶</a>5.1 采用最新<code>npm</code>依赖版本的豪华配置, 可<code>npm-check-update</code></h2>
-<p><a href="https://github.com/8bulbs/jsl-webpack-vue-h5" target="_blank" rel="noopener">jsl-webpack-vue-h5<img class="github-emoji" title="sunglasses" alt="sunglasses" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8" height="20" width="20"> 欢迎star<img class="github-emoji" title="star" alt="star" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png?v8" height="20" width="20"></a></p>
+<p><a href="https://github.com/atbulbs/jsl-webpack-vue-h5" target="_blank" rel="noopener">jsl-webpack-vue-h5<img class="github-emoji" title="sunglasses" alt="sunglasses" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v8" height="20" width="20"> 欢迎star<img class="github-emoji" title="star" alt="star" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2b50.png?v8" height="20" width="20"></a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"@babel/core"</span>: <span class="string">"^7.1.6"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^8.0.4"</span>,</span><br><span class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^15.4.2"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^4.25.1"</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
 <h2 id="5-2-采用vue-cli2的配置"><a class="header-anchor" href="#5-2-采用vue-cli2的配置">¶</a>5.2 采用<code>vue-cli2</code>的配置</h2>
-<p><a href="https://github.com/8bulbs/jsl-vue-cli2-vw-layout" target="_blank" rel="noopener">jsl-vue-cli2-vw-layout</a></p>
+<p><a href="https://github.com/atbulbs/jsl-vue-cli2-vw-layout" target="_blank" rel="noopener">jsl-vue-cli2-vw-layout</a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel/core"</span>: <span class="string">"^6.22.1"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"^7.1.1"</span>,</span><br><span class="line">    <span class="string">"vue-loader"</span>: <span class="string">"^13.3.0"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^3.6.0"</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
 <h2 id="5-3-采用vue-cli3的配置"><a class="header-anchor" href="#5-3-采用vue-cli3的配置">¶</a>5.3 采用<code>vue-cli3</code>的配置</h2>
-<p><a href="https://github.com/8bulbs/jsl-vue-cli3-vw-layout" target="_blank" rel="noopener">jsl-vue-cli3-vw-layout</a></p>
+<p><a href="https://github.com/atbulbs/jsl-vue-cli3-vw-layout" target="_blank" rel="noopener">jsl-vue-cli3-vw-layout</a></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"@vue/cli-plugin-babel"</span>: <span class="string">"^3.1.1"</span>,</span><br><span class="line">    <span class="string">"@vue/cli-service"</span>: <span class="string">"^3.1.4"</span>,</span><br><span class="line">    <span class="comment">// ..</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
 <h1>六. 实际开发中<code>vw</code>适配的应用</h1>
 <h2 id="6-1-在css中写样式"><a class="header-anchor" href="#6-1-在css中写样式">¶</a>6.1 在<code>css</code>中写样式</h2>
@@ -487,8 +487,8 @@
 <p>       如果你有在前端截屏的需求, 刚好你用到了html2canvas插件, 而且刚好要适配ios低版本机型, 请使用0.5.0-beta4版本, 并且把加了css-content的标签的内容置空</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.target-el</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1>八. 说好的彩<img class="github-emoji" title="lollipop" alt="lollipop" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f36d.png?v8" height="20" width="20">蛋<img class="github-emoji" title="egg" alt="egg" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f95a.png?v8" height="20" width="20"></h1>
-<h2 id="8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码"><a class="header-anchor" href="#8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码">¶</a>8.1 彩蛋a: <a href="https://8bulbs.github.io/2018/10/15/2018-10-15stylus%E8%AE%A9%E4%BD%A0%E7%94%A8%E6%9B%B4%E9%AA%9A%E7%9A%84%E5%A7%BF%E5%8A%BF%E5%86%99css/"><code>stylus</code>让你用更优雅<img class="github-emoji" title="bowtie" alt="bowtie" src="https://assets-cdn.github.com/images/icons/emoji/bowtie.png?v8" height="20" width="20">姿势的撸业务代码</a></h2>
-<h2 id="8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20"><a class="header-anchor" href="#8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20">¶</a>8.2 彩蛋b: <a href="https://8bulbs.github.io/2018/11/18/2018-11-11%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E9%A3%8E%E4%B8%80%E8%88%AC%E7%9A%84%E7%88%B1(ban)%E7%A0%81(zhuan)%E4%BB%95(de)%E4%B9%88/"><code>user snippets</code> 和 <code>emmet</code>/<code>zen coding</code> 让你成为风一般的爱(ban)码(zhuan)仕(de)<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20"></a></h2>
+<h2 id="8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码"><a class="header-anchor" href="#8-1-彩蛋a-stylus让你-用更优雅-img-class-github-emoji-title-bowtie-alt-bowtie-src-https-assets-cdn-github-com-images-icons-emoji-bowtie-png-v8-height-20-width-20-姿势的撸业务代码">¶</a>8.1 彩蛋a: <a href="https://atbulbs.github.io/2018/10/15/2018-10-15stylus%E8%AE%A9%E4%BD%A0%E7%94%A8%E6%9B%B4%E9%AA%9A%E7%9A%84%E5%A7%BF%E5%8A%BF%E5%86%99css/"><code>stylus</code>让你用更优雅<img class="github-emoji" title="bowtie" alt="bowtie" src="https://assets-cdn.github.com/images/icons/emoji/bowtie.png?v8" height="20" width="20">姿势的撸业务代码</a></h2>
+<h2 id="8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20"><a class="header-anchor" href="#8-2-彩蛋b-user-snippets-和-emmet-zen-coding-让你成为风一般的爱-ban-码-zhuan-仕-de-img-class-github-emoji-title-joy-alt-joy-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f602-png-v8-height-20-width-20">¶</a>8.2 彩蛋b: <a href="https://atbulbs.github.io/2018/11/18/2018-11-11%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E9%A3%8E%E4%B8%80%E8%88%AC%E7%9A%84%E7%88%B1(ban)%E7%A0%81(zhuan)%E4%BB%95(de)%E4%B9%88/"><code>user snippets</code> 和 <code>emmet</code>/<code>zen coding</code> 让你成为风一般的爱(ban)码(zhuan)仕(de)<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20"></a></h2>
 <p>happy hacking~!</p>
 
       
@@ -510,14 +510,14 @@
 
     
       <div id="wechat" style="display: block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="8bulbs 微信支付">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="atbulbs 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="8bulbs 支付宝">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="atbulbs 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -627,9 +627,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="8bulbs">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="atbulbs">
             
-              <p class="site-author-name" itemprop="name">8bulbs</p>
+              <p class="site-author-name" itemprop="name">atbulbs</p>
               <p class="site-description motion-element" itemprop="description"></></p>
           </div>
 
@@ -681,7 +681,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/8bulbs" target="_blank" title="GitHub">
+                    <a href="https://github.com/atbulbs" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
@@ -740,7 +740,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">8bulbs</span>
+  <span class="author" itemprop="copyrightHolder">atbulbs</span>
 
   
 </div>

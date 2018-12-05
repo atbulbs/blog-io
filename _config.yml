@@ -7,13 +7,13 @@ title: 8bubls(Jason Liao)
 subtitle: more code, more exercise, more happy
 description: </>
 keywords: 撸码 撸铁 吃饭 洗澡 睡觉
-author: 8bulbs
+author: atbulbs
 language: zh-Hans
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://8bulbs.github.io
+url: https://atbulbs.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -79,7 +79,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:  
 	  type: git  
-	  repository: https://github.com/8bulbs/8bulbs.github.io.git
+	  repository: https://github.com/atbulbs/atbulbs.github.io.git
     branch: master
     
 # Markdown-it config

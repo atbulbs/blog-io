@@ -54,12 +54,12 @@ ps:如果你是在手机上浏览,横屏体验更好哦~
 >>>### production--生产环境
 >>>在生产环境里我们提取css为外部样式,分割出vue等类库的源码,压缩代码,生成资源的哈希以便利用长缓存
 # 本文源码
->本文的源码在:octocat:[https://github.com/8bulbs/webpack-learning](https://github.com/8bulbs/webpack-learning)
+>本文的源码在:octocat:[https://github.com/atbulbs/webpack-learning](https://github.com/atbulbs/webpack-learning)
 >欢迎在github上为我点星星Star:star:,欢迎转发,也欢迎戳一下文章末尾的点击打赏
 # 源码使用说明
 >下载代码
 ```bash
-$ git clone https://github.com/8bulbs/webpack-learning.git
+$ git clone https://github.com/atbulbs/webpack-learning.git
 ```
 >进入webpack3文件夹
 ```bash
@@ -572,6 +572,6 @@ app.listen(PORT, HOST, () => {
 
 ```
 >ps: 本文的配置是基于webpack3.0版本的,后期会出webpack4.0版本的配置,欢迎关注
->本文的源码在:octocat:[https://github.com/8bulbs/webpack-learning](https://github.com/8bulbs/webpack-learning)
+>本文的源码在:octocat:[https://github.com/atbulbs/webpack-learning](https://github.com/atbulbs/webpack-learning)
 >欢迎在github上为我点星星Star:star:,欢迎转发,也欢迎戳一下文章末尾的点击打赏
 

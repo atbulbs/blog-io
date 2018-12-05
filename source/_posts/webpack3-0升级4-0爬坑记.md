@@ -13,7 +13,7 @@ categories: 前端工程
 # 开始愉快的爬坑之旅吧:turtle:
 >克隆我的webapck仓库
 ```bash
-$ git clone https://github.com/8bulbs/webpack-learning.git
+$ git clone https://github.com/atbulbs/webpack-learning.git
 ```
 >切换到webpack3目录
 ```bash

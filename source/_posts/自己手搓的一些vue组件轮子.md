@@ -10,9 +10,9 @@ categories: vue
 
 > npm site: [https://www.npmjs.com/package/jsl-vue-h5](https://www.npmjs.com/package/jsl-vue-h5)
 
-> demo online: [https://8bulbs.github.io/jsl-vue-h5-demo-online/](https://8bulbs.github.io/jsl-vue-h5-demo-online/)
+> demo online: [https://atbulbs.github.io/jsl-vue-h5-demo-online/](https://atbulbs.github.io/jsl-vue-h5-demo-online/)
 
-> code demo: [https://github.com/8bulbs/jsl-vue-h5-demo](https://github.com/8bulbs/jsl-vue-h5-demo)
+> code demo: [https://github.com/atbulbs/jsl-vue-h5-demo](https://github.com/atbulbs/jsl-vue-h5-demo)
 
 ## install
 ```bash
@@ -437,12 +437,12 @@ package.json配置如下
   "name": "jsl-vue-h5",
   "version": "0.0.8",
   "description": "some Vue.js components and plugins for mobile H5 development",
-  "author": "8bulbs <atbulbs@gmail.com>",
+  "author": "atbulbs <atbulbs@gmail.com>",
   "private": false,
   "main": "dist/jsl-vue-h5.min.js",
     "repository": {
     "type": "git",
-    "url": "git+https://github.com/8bulbs/jsl-vue-h5.git"
+    "url": "git+https://github.com/atbulbs/jsl-vue-h5.git"
   },
   "files": [
     "dist",
@@ -456,7 +456,7 @@ package.json配置如下
     "loading"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/8bulbs/jsl-vue-h5.git#readme",
+  "homepage": "https://github.com/atbulbs/jsl-vue-h5.git#readme",
   // "scripts": { ... },
   // "dependencies": { ... },
   // "devDependencies": { ... }

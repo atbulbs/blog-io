@@ -83,12 +83,12 @@
 <meta name="keywords" content="组件化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自己手搓的一些vue组件轮子">
-<meta property="og:url" content="https://8bulbs.github.io/2018/05/09/自己手搓的一些vue组件轮子/index.html">
+<meta property="og:url" content="https://atbulbs.github.io/2018/05/09/自己手搓的一些vue组件轮子/index.html">
 <meta property="og:site_name" content="8bubls(Jason Liao)">
 <meta property="og:description" content="a JasonLiao project: jsl-vue-h5  自己纯手工打造的一些轮子,一个vue的H5插件库, 按照375px宽度的UI图构建, 会转换为vw, 可按需引入,welcome npm install and happy hacking ~   npm site: https://www.npmjs.com/package/jsl-vue-h5   demo online: ht">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/263a.png?v8">
-<meta property="og:updated_time" content="2018-10-23T17:16:51.279Z">
+<meta property="og:updated_time" content="2018-12-05T07:42:53.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己手搓的一些vue组件轮子">
 <meta name="twitter:description" content="a JasonLiao project: jsl-vue-h5  自己纯手工打造的一些轮子,一个vue的H5插件库, 按照375px宽度的UI图构建, 会转换为vw, 可按需引入,welcome npm install and happy hacking ~   npm site: https://www.npmjs.com/package/jsl-vue-h5   demo online: ht">
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://8bulbs.github.io/2018/05/09/自己手搓的一些vue组件轮子/">
+  <link rel="canonical" href="https://atbulbs.github.io/2018/05/09/自己手搓的一些vue组件轮子/">
 
 
 
@@ -270,10 +270,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/05/09/自己手搓的一些vue组件轮子/">
+    <link itemprop="mainEntityOfPage" href="https://atbulbs.github.io/2018/05/09/自己手搓的一些vue组件轮子/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="name" content="atbulbs">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
@@ -367,10 +367,10 @@
 <p>npm site: <a href="https://www.npmjs.com/package/jsl-vue-h5" target="_blank" rel="noopener">https://www.npmjs.com/package/jsl-vue-h5</a></p>
 </blockquote>
 <blockquote>
-<p>demo online: <a href="https://8bulbs.github.io/jsl-vue-h5-demo-online/">https://8bulbs.github.io/jsl-vue-h5-demo-online/</a></p>
+<p>demo online: <a href="https://atbulbs.github.io/jsl-vue-h5-demo-online/">https://atbulbs.github.io/jsl-vue-h5-demo-online/</a></p>
 </blockquote>
 <blockquote>
-<p>code demo: <a href="https://github.com/8bulbs/jsl-vue-h5-demo" target="_blank" rel="noopener">https://github.com/8bulbs/jsl-vue-h5-demo</a></p>
+<p>code demo: <a href="https://github.com/atbulbs/jsl-vue-h5-demo" target="_blank" rel="noopener">https://github.com/atbulbs/jsl-vue-h5-demo</a></p>
 </blockquote>
 <h2 id="install"><a class="header-anchor" href="#install">¶</a>install</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install jsl-vue-h5 --save</span><br></pre></td></tr></table></figure>
@@ -835,7 +835,7 @@
 <p>webpack prod plugin config</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> prodPlugins = [</span><br><span class="line">  <span class="keyword">new</span> MiniCssExtractPlugin(&#123;</span><br><span class="line">    filename: <span class="string">'jsl-vue-h5.min.css'</span></span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>package.json配置如下</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"jsl-vue-h5"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.0.8"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"some Vue.js components and plugins for mobile H5 development"</span>,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"8bulbs &lt;atbulbs@gmail.com&gt;"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"dist/jsl-vue-h5.min.js"</span>,</span><br><span class="line">    <span class="string">"repository"</span>: &#123;</span><br><span class="line">    <span class="string">"type"</span>: <span class="string">"git"</span>,</span><br><span class="line">    <span class="string">"url"</span>: <span class="string">"git+https://github.com/8bulbs/jsl-vue-h5.git"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"files"</span>: [</span><br><span class="line">    <span class="string">"dist"</span>,</span><br><span class="line">    <span class="string">"src"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"keywords"</span>: [</span><br><span class="line">    <span class="string">"vue"</span>,</span><br><span class="line">    <span class="string">"h5"</span>,</span><br><span class="line">    <span class="string">"mobile"</span>,</span><br><span class="line">    <span class="string">"wechat"</span>,</span><br><span class="line">    <span class="string">"loading"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"MIT"</span>,</span><br><span class="line">  <span class="string">"homepage"</span>: <span class="string">"https://github.com/8bulbs/jsl-vue-h5.git#readme"</span>,</span><br><span class="line">  <span class="comment">// "scripts": &#123; ... &#125;,</span></span><br><span class="line">  <span class="comment">// "dependencies": &#123; ... &#125;,</span></span><br><span class="line">  <span class="comment">// "devDependencies": &#123; ... &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"jsl-vue-h5"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.0.8"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"some Vue.js components and plugins for mobile H5 development"</span>,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"atbulbs &lt;atbulbs@gmail.com&gt;"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"dist/jsl-vue-h5.min.js"</span>,</span><br><span class="line">    <span class="string">"repository"</span>: &#123;</span><br><span class="line">    <span class="string">"type"</span>: <span class="string">"git"</span>,</span><br><span class="line">    <span class="string">"url"</span>: <span class="string">"git+https://github.com/atbulbs/jsl-vue-h5.git"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"files"</span>: [</span><br><span class="line">    <span class="string">"dist"</span>,</span><br><span class="line">    <span class="string">"src"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"keywords"</span>: [</span><br><span class="line">    <span class="string">"vue"</span>,</span><br><span class="line">    <span class="string">"h5"</span>,</span><br><span class="line">    <span class="string">"mobile"</span>,</span><br><span class="line">    <span class="string">"wechat"</span>,</span><br><span class="line">    <span class="string">"loading"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"MIT"</span>,</span><br><span class="line">  <span class="string">"homepage"</span>: <span class="string">"https://github.com/atbulbs/jsl-vue-h5.git#readme"</span>,</span><br><span class="line">  <span class="comment">// "scripts": &#123; ... &#125;,</span></span><br><span class="line">  <span class="comment">// "dependencies": &#123; ... &#125;,</span></span><br><span class="line">  <span class="comment">// "devDependencies": &#123; ... &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>本地开发完成后</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打包</span></span><br><span class="line">$ npm run build</span><br><span class="line"><span class="comment"># 生成 .tgz 文件</span></span><br><span class="line">$ npm pack</span><br></pre></td></tr></table></figure>
 <p>若npm源为淘宝镜像, 需要切换源为 <a href="https://registry.npmjs.org/" target="_blank" rel="noopener">https://registry.npmjs.org/</a></p>
@@ -865,14 +865,14 @@
 
     
       <div id="wechat" style="display: block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="8bulbs 微信支付">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="atbulbs 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="8bulbs 支付宝">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="atbulbs 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -982,9 +982,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="8bulbs">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="atbulbs">
             
-              <p class="site-author-name" itemprop="name">8bulbs</p>
+              <p class="site-author-name" itemprop="name">atbulbs</p>
               <p class="site-description motion-element" itemprop="description"></></p>
           </div>
 
@@ -1036,7 +1036,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/8bulbs" target="_blank" title="GitHub">
+                    <a href="https://github.com/atbulbs" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
@@ -1095,7 +1095,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">8bulbs</span>
+  <span class="author" itemprop="copyrightHolder">atbulbs</span>
 
   
 </div>

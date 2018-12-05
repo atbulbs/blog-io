@@ -83,19 +83,19 @@
 <meta name="keywords" content="源码探秘">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从JS运行机制谈Vue的nextTick">
-<meta property="og:url" content="https://8bulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/index.html">
+<meta property="og:url" content="https://atbulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/index.html">
 <meta property="og:site_name" content="8bubls(Jason Liao)">
 <meta property="og:description" content="¶从JavaScript的单线程谈起        什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把D">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8">
-<meta property="og:image" content="https://8bulbs.github.io/images/next-tick/brendan-eich.jpg">
-<meta property="og:image" content="https://8bulbs.github.io/images/next-tick/ryan-dahl.jpg">
-<meta property="og:image" content="https://8bulbs.github.io/images/next-tick/event-loop.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/next-tick/vue-doc-1.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/next-tick/vue-doc-2.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/next-tick/global-api.png">
-<meta property="og:image" content="https://8bulbs.github.io/images/next-tick/instance-render.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/next-tick/brendan-eich.jpg">
+<meta property="og:image" content="https://atbulbs.github.io/images/next-tick/ryan-dahl.jpg">
+<meta property="og:image" content="https://atbulbs.github.io/images/next-tick/event-loop.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/next-tick/vue-doc-1.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/next-tick/vue-doc-2.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/next-tick/global-api.png">
+<meta property="og:image" content="https://atbulbs.github.io/images/next-tick/instance-render.png">
 <meta property="og:updated_time" content="2018-10-23T17:16:51.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从JS运行机制谈Vue的nextTick">
@@ -135,7 +135,7 @@
 
 
 
-  <link rel="canonical" href="https://8bulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/">
+  <link rel="canonical" href="https://atbulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/">
 
 
 
@@ -278,10 +278,10 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://8bulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/">
+    <link itemprop="mainEntityOfPage" href="https://atbulbs.github.io/2018/07/27/从JS运行机制谈Vue的nextTick/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="8bulbs">
+      <meta itemprop="name" content="atbulbs">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
@@ -412,14 +412,14 @@
 
     
       <div id="wechat" style="display: block">
-        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="8bulbs 微信支付">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="atbulbs 微信支付">
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: block">
-        <img id="alipay_qr" src="/images/alipay.jpg" alt="8bulbs 支付宝">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="atbulbs 支付宝">
         <p>支付宝</p>
       </div>
     
@@ -529,9 +529,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="8bulbs">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="atbulbs">
             
-              <p class="site-author-name" itemprop="name">8bulbs</p>
+              <p class="site-author-name" itemprop="name">atbulbs</p>
               <p class="site-description motion-element" itemprop="description"></></p>
           </div>
 
@@ -583,7 +583,7 @@
             <div class="links-of-author motion-element">
                 
                   <span class="links-of-author-item">
-                    <a href="https://github.com/8bulbs" target="_blank" title="GitHub">
+                    <a href="https://github.com/atbulbs" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
                   </span>
@@ -642,7 +642,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">8bulbs</span>
+  <span class="author" itemprop="copyrightHolder">atbulbs</span>
 
   
 </div>
