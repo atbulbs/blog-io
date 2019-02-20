@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="typescript">
 <meta property="og:url" content="https://atbulbs.github.io/2018/10/19/typescript/index.html">
-<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:site_name" content="atbubls(Jason Liao)">
 <meta property="og:description" content="TypeScript ¶类  访问控制符：定义声明的属性和方法的可访问的范围 public 公开的(默认的, 可省略) private 私有的, 只能在类的内部访问 protected 只能在类的内部和子类访问">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-23T17:24:23.517Z">
+<meta property="og:updated_time" content="2019-02-20T03:08:46.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="typescript">
 <meta name="twitter:description" content="TypeScript ¶类  访问控制符：定义声明的属性和方法的可访问的范围 public 公开的(默认的, 可省略) private 私有的, 只能在类的内部访问 protected 只能在类的内部和子类访问">
@@ -131,7 +131,7 @@
 
 
 
-  <title>typescript | 8bubls(Jason Liao)</title>
+  <title>typescript | atbubls(Jason Liao)</title>
   
 
 
@@ -161,7 +161,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="site-title">atbubls(Jason Liao)</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -277,7 +277,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -358,37 +358,55 @@
 
       
         <h1>TypeScript</h1>
-<h2 id="类"><a class="header-anchor" href="#类">¶</a>类</h2>
+<h2 id="&#x7C7B;"><a class="header-anchor" href="#&#x7C7B;">&#xB6;</a>&#x7C7B;</h2>
 <ul>
-<li>访问控制符：定义声明的属性和方法的可访问的范围<br>
-public 公开的(默认的, 可省略)<br>
-private 私有的, 只能在类的内部访问<br>
-protected 只能在类的内部和子类访问</li>
+<li>&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x7B26;&#xFF1A;&#x5B9A;&#x4E49;&#x58F0;&#x660E;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x7684;&#x53EF;&#x8BBF;&#x95EE;&#x7684;&#x8303;&#x56F4;<br>
+public &#x516C;&#x5F00;&#x7684;(&#x9ED8;&#x8BA4;&#x7684;, &#x53EF;&#x7701;&#x7565;)<br>
+private &#x79C1;&#x6709;&#x7684;, &#x53EA;&#x80FD;&#x5728;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#x8BBF;&#x95EE;<br>
+protected &#x53EA;&#x80FD;&#x5728;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#x548C;&#x5B50;&#x7C7B;&#x8BBF;&#x95EE;</li>
 </ul>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AccessControl</span> </span>&#123;</span><br><span class="line">    defualtAccess () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'defualtAccess'</span>)</span><br><span class="line">        <span class="keyword">this</span>.defualtAccess_()</span><br><span class="line">        <span class="keyword">this</span>.protectedAccess()</span><br><span class="line">        <span class="keyword">this</span>.privateAccess()</span><br><span class="line">    &#125;</span><br><span class="line">    public defualtAccess_ () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'defualtAccess_'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    protected protectedAccess () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'protectedAccess'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    private privateAccess () &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'privteAccess'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubAccessControl</span> <span class="keyword">extends</span> <span class="title">AccessControl</span> </span>&#123;</span><br><span class="line">    test() &#123;</span><br><span class="line">        <span class="keyword">this</span>.defualtAccess()</span><br><span class="line">        <span class="keyword">this</span>.defualtAccess_()</span><br><span class="line">        <span class="keyword">this</span>.protectedAccess()</span><br><span class="line">        <span class="keyword">this</span>.privateAccess() <span class="comment">// ERR</span></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> AccessTest = <span class="keyword">new</span> AccessControl()</span><br><span class="line"></span><br><span class="line">AccessTest.defualtAccess()</span><br><span class="line">AccessTest.defualtAccess_()</span><br><span class="line">AccessTest.protectedAccess() <span class="comment">// ERR</span></span><br><span class="line">AccessTest.privateAccess() <span class="comment">// ERR</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AccessControl</span> </span>{</span><br><span class="line">    defualtAccess () {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;defualtAccess&apos;</span>)</span><br><span class="line">        <span class="keyword">this</span>.defualtAccess_()</span><br><span class="line">        <span class="keyword">this</span>.protectedAccess()</span><br><span class="line">        <span class="keyword">this</span>.privateAccess()</span><br><span class="line">    }</span><br><span class="line">    public defualtAccess_ () {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;defualtAccess_&apos;</span>)</span><br><span class="line">    }</span><br><span class="line">    protected protectedAccess () {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;protectedAccess&apos;</span>)</span><br><span class="line">    }</span><br><span class="line">    private privateAccess () {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;privteAccess&apos;</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubAccessControl</span> <span class="keyword">extends</span> <span class="title">AccessControl</span> </span>{</span><br><span class="line">    test() {</span><br><span class="line">        <span class="keyword">this</span>.defualtAccess()</span><br><span class="line">        <span class="keyword">this</span>.defualtAccess_()</span><br><span class="line">        <span class="keyword">this</span>.protectedAccess()</span><br><span class="line">        <span class="keyword">this</span>.privateAccess() <span class="comment">// ERR</span></span><br><span class="line">     }</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> AccessTest = <span class="keyword">new</span> AccessControl()</span><br><span class="line"></span><br><span class="line">AccessTest.defualtAccess()</span><br><span class="line">AccessTest.defualtAccess_()</span><br><span class="line">AccessTest.protectedAccess() <span class="comment">// ERR</span></span><br><span class="line">AccessTest.privateAccess() <span class="comment">// ERR</span></span><br></pre></td></tr></tbody></table></figure>
 <ul>
-<li>继承关键字<br>
-extends 继承<br>
-super 在子类构造函数里调用父类的构造函数</li>
+<li>&#x7EE7;&#x627F;&#x5173;&#x952E;&#x5B57;<br>
+extends &#x7EE7;&#x627F;<br>
+super &#x5728;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x91CC;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;</li>
 </ul>
-<h2 id="接口"><a class="header-anchor" href="#接口">¶</a>接口</h2>
+<h2 id="&#x63A5;&#x53E3;"><a class="header-anchor" href="#&#x63A5;&#x53E3;">&#xB6;</a>&#x63A5;&#x53E3;</h2>
 <ul>
-<li>作用<br>
-建立代码约定</li>
-<li>关键字<br>
+<li>&#x4F5C;&#x7528;<br>
+&#x5EFA;&#x7ACB;&#x4EE3;&#x7801;&#x7EA6;&#x5B9A;</li>
+<li>&#x5173;&#x952E;&#x5B57;<br>
 interface<br>
 implements</li>
-<li>用法</li>
+<li>&#x7528;&#x6CD5;</li>
 </ul>
 <ol>
-<li>接口的属性声明</li>
+<li>&#x63A5;&#x53E3;&#x7684;&#x5C5E;&#x6027;&#x58F0;&#x660E;</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TS</span></span><br><span class="line">interface ProgrammeLanguages &#123;</span><br><span class="line">    languages: <span class="built_in">Array</span>&lt;<span class="built_in">String</span>&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WebDev</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(public lang: ProgrammeLanguages) &#123;</span><br><span class="line">        <span class="keyword">this</span>.lang = lang</span><br><span class="line">    &#125;</span><br><span class="line">    coding () &#123;</span><br><span class="line">        <span class="built_in">console</span>.dir(<span class="keyword">this</span>.lang)</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FrontEnd = <span class="keyword">new</span> WebDev(&#123;</span><br><span class="line">    languages: [<span class="string">'HTML'</span>, <span class="string">'CSS'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">FrontEnd.coding()</span><br><span class="line"></span><br><span class="line"><span class="comment">// JS</span></span><br><span class="line"><span class="keyword">var</span> WebDev = <span class="comment">/** @class */</span> (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">WebDev</span>(<span class="params">lang</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.lang = lang</span><br><span class="line">        <span class="keyword">this</span>.lang = lang</span><br><span class="line">    &#125;</span><br><span class="line">    WebDev.prototype.coding = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.dir(<span class="keyword">this</span>.lang)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> WebDev</span><br><span class="line">&#125;())</span><br><span class="line"><span class="keyword">var</span> FrontEnd = <span class="keyword">new</span> WebDev(&#123;</span><br><span class="line">    languages: [<span class="string">'HTML'</span>, <span class="string">'CSS'</span>, <span class="string">'JavaScript'</span>]</span><br><span class="line">&#125;)</span><br><span class="line">FrontEnd.coding()</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TS</span></span><br><span class="line">interface ProgrammeLanguages {</span><br><span class="line">    languages: <span class="built_in">Array</span>&lt;<span class="built_in">String</span>&gt;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WebDev</span> </span>{</span><br><span class="line">    <span class="keyword">constructor</span>(public lang: ProgrammeLanguages) {</span><br><span class="line">        <span class="keyword">this</span>.lang = lang</span><br><span class="line">    }</span><br><span class="line">    coding () {</span><br><span class="line">        <span class="built_in">console</span>.dir(<span class="keyword">this</span>.lang)</span><br><span class="line">     }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FrontEnd = <span class="keyword">new</span> WebDev({</span><br><span class="line">    languages: [<span class="string">&apos;HTML&apos;</span>, <span class="string">&apos;CSS&apos;</span>, <span class="string">&apos;JavaScript&apos;</span>]</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">FrontEnd.coding()</span><br><span class="line"></span><br><span class="line"><span class="comment">// JS</span></span><br><span class="line"><span class="keyword">var</span> WebDev = <span class="comment">/** @class */</span> (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">WebDev</span>(<span class="params">lang</span>) </span>{</span><br><span class="line">        <span class="keyword">this</span>.lang = lang</span><br><span class="line">        <span class="keyword">this</span>.lang = lang</span><br><span class="line">    }</span><br><span class="line">    WebDev.prototype.coding = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.dir(<span class="keyword">this</span>.lang)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> WebDev</span><br><span class="line">}())</span><br><span class="line"><span class="keyword">var</span> FrontEnd = <span class="keyword">new</span> WebDev({</span><br><span class="line">    languages: [<span class="string">&apos;HTML&apos;</span>, <span class="string">&apos;CSS&apos;</span>, <span class="string">&apos;JavaScript&apos;</span>]</span><br><span class="line">})</span><br><span class="line">FrontEnd.coding()</span><br></pre></td></tr></tbody></table></figure>
 <ol start="2">
-<li>接口的方法声明</li>
+<li>&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#x58F0;&#x660E;</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TS</span></span><br><span class="line">interface WebDev &#123;</span><br><span class="line">    coding()</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FrontEndDev</span> <span class="title">implements</span> <span class="title">WebDev</span> </span>&#123;</span><br><span class="line">    coding() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'happy hacking!'</span>)</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> VFE = <span class="keyword">new</span> FrontEndDev()</span><br><span class="line"></span><br><span class="line">VFE.coding()</span><br><span class="line"></span><br><span class="line"><span class="comment">// JS</span></span><br><span class="line"><span class="keyword">var</span> FrontEndDev = <span class="comment">/** @class */</span> (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FrontEndDev</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    FrontEndDev.prototype.coding = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'happy hacking!'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> FrontEndDev;</span><br><span class="line">&#125;())</span><br><span class="line"><span class="keyword">var</span> VFE = <span class="keyword">new</span> FrontEndDev()</span><br><span class="line">VFE.coding()</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TS</span></span><br><span class="line">interface WebDev {</span><br><span class="line">    coding()</span><br><span class="line"> }</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FrontEndDev</span> <span class="title">implements</span> <span class="title">WebDev</span> </span>{</span><br><span class="line">    coding() {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;happy hacking!&apos;</span>)</span><br><span class="line">     }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> VFE = <span class="keyword">new</span> FrontEndDev()</span><br><span class="line"></span><br><span class="line">VFE.coding()</span><br><span class="line"></span><br><span class="line"><span class="comment">// JS</span></span><br><span class="line"><span class="keyword">var</span> FrontEndDev = <span class="comment">/** @class */</span> (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FrontEndDev</span> (<span class="params"></span>) </span>{</span><br><span class="line">    }</span><br><span class="line">    FrontEndDev.prototype.coding = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;happy hacking!&apos;</span>)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> FrontEndDev;</span><br><span class="line">}())</span><br><span class="line"><span class="keyword">var</span> VFE = <span class="keyword">new</span> FrontEndDev()</span><br><span class="line">VFE.coding()</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -447,8 +465,8 @@ implements</li>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/17/mac iterm2快捷键/" rel="next" title="mac iterm2快捷键">
-                <i class="fa fa-chevron-left"></i> mac iterm2快捷键
+              <a href="/2018/10/17/linux常用命令/" rel="next" title="linux常用命令">
+                <i class="fa fa-chevron-left"></i> linux常用命令
               </a>
             
           </div>
@@ -634,7 +652,7 @@ implements</li>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

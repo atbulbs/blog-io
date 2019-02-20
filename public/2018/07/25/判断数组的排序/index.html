@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="判断数组的排序">
 <meta property="og:url" content="https://atbulbs.github.io/2018/07/25/判断数组的排序/index.html">
-<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:site_name" content="atbubls(Jason Liao)">
 <meta property="og:description" content="判断一个数字数组的排序类型 考虑升序, 降序, 平序, 乱序四种情况 ¶基本实现        遍历整个数组, 记录相邻两个数字的比较结果保存到升序和降序的计数器里并以此判断结果 ¶optimization 算法性能优化">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-23T17:16:51.278Z">
+<meta property="og:updated_time" content="2019-02-20T03:08:46.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="判断数组的排序">
 <meta name="twitter:description" content="判断一个数字数组的排序类型 考虑升序, 降序, 平序, 乱序四种情况 ¶基本实现        遍历整个数组, 记录相邻两个数字的比较结果保存到升序和降序的计数器里并以此判断结果 ¶optimization 算法性能优化">
@@ -131,7 +131,7 @@
 
 
 
-  <title>判断数组的排序 | 8bubls(Jason Liao)</title>
+  <title>判断数组的排序 | atbubls(Jason Liao)</title>
   
 
 
@@ -161,7 +161,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="site-title">atbubls(Jason Liao)</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -277,7 +277,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -357,18 +357,36 @@
       
 
       
-        <p>判断一个数字数组的排序类型<br>
-考虑升序, 降序, 平序, 乱序四种情况</p>
-<h3 id="基本实现"><a class="header-anchor" href="#基本实现">¶</a>基本实现</h3>
-<p>       遍历整个数组, 记录相邻两个数字的比较结果保存到升序和降序的计数器里并以此判断结果</p>
-<h3 id="optimization-算法性能优化"><a class="header-anchor" href="#optimization-算法性能优化">¶</a>optimization 算法性能优化</h3>
+        <p>&#x5224;&#x65AD;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x6570;&#x7EC4;&#x7684;&#x6392;&#x5E8F;&#x7C7B;&#x578B;<br>
+&#x8003;&#x8651;&#x5347;&#x5E8F;, &#x964D;&#x5E8F;, &#x5E73;&#x5E8F;, &#x4E71;&#x5E8F;&#x56DB;&#x79CD;&#x60C5;&#x51B5;</p>
+<h3 id="&#x57FA;&#x672C;&#x5B9E;&#x73B0;"><a class="header-anchor" href="#&#x57FA;&#x672C;&#x5B9E;&#x73B0;">&#xB6;</a>&#x57FA;&#x672C;&#x5B9E;&#x73B0;</h3>
+<p>&#xA0; &#xA0; &#xA0; &#xA0;&#x904D;&#x5386;&#x6574;&#x4E2A;&#x6570;&#x7EC4;, &#x8BB0;&#x5F55;&#x76F8;&#x90BB;&#x4E24;&#x4E2A;&#x6570;&#x5B57;&#x7684;&#x6BD4;&#x8F83;&#x7ED3;&#x679C;&#x4FDD;&#x5B58;&#x5230;&#x5347;&#x5E8F;&#x548C;&#x964D;&#x5E8F;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x91CC;&#x5E76;&#x4EE5;&#x6B64;&#x5224;&#x65AD;&#x7ED3;&#x679C;</p>
+<h3 id="optimization-&#x7B97;&#x6CD5;&#x6027;&#x80FD;&#x4F18;&#x5316;"><a class="header-anchor" href="#optimization-&#x7B97;&#x6CD5;&#x6027;&#x80FD;&#x4F18;&#x5316;">&#xB6;</a>optimization &#x7B97;&#x6CD5;&#x6027;&#x80FD;&#x4F18;&#x5316;</h3>
 <a id="more"></a>
 <ol>
-<li>根据条件提前退出循环</li>
-<li>用–循环, 避免重复计算循环边界</li>
-<li>减少变量的声明</li>
+<li>&#x6839;&#x636E;&#x6761;&#x4EF6;&#x63D0;&#x524D;&#x9000;&#x51FA;&#x5FAA;&#x73AF;</li>
+<li>&#x7528;&#x2013;&#x5FAA;&#x73AF;, &#x907F;&#x514D;&#x91CD;&#x590D;&#x8BA1;&#x7B97;&#x5FAA;&#x73AF;&#x8FB9;&#x754C;</li>
+<li>&#x51CF;&#x5C11;&#x53D8;&#x91CF;&#x7684;&#x58F0;&#x660E;</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> testArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArrOrder</span> (<span class="params">arr</span>) </span>&#123;	</span><br><span class="line">  <span class="keyword">let</span> ascendentCount = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> decendentCount = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> result = <span class="string">''</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[i] &gt; arr[i - <span class="number">1</span>]) &#123;	</span><br><span class="line">      <span class="keyword">if</span> (decendentCount) &#123;	</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'乱序'</span></span><br><span class="line">      &#125;</span><br><span class="line">      ascendentCount++</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (arr[i] &lt; arr[i - <span class="number">1</span>]) &#123;</span><br><span class="line">      <span class="keyword">if</span> (ascendentCount) &#123;	</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'乱序'</span></span><br><span class="line">      &#125;</span><br><span class="line">      decendentCount++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (ascendentCount === <span class="number">0</span> &amp;&amp; decendentCount === <span class="number">0</span>) &#123;	</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'平序'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (decendentCount === <span class="number">0</span>) &#123;	</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'升序'</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;	</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'降序'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getArrOrder(testArr))</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> testArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArrOrder</span> (<span class="params">arr</span>) </span>{	</span><br><span class="line">  <span class="keyword">let</span> ascendentCount = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> decendentCount = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> result = <span class="string">&apos;&apos;</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--) {</span><br><span class="line">    <span class="keyword">if</span> (arr[i] &gt; arr[i - <span class="number">1</span>]) {	</span><br><span class="line">      <span class="keyword">if</span> (decendentCount) {	</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&apos;&#x4E71;&#x5E8F;&apos;</span></span><br><span class="line">      }</span><br><span class="line">      ascendentCount++</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (arr[i] &lt; arr[i - <span class="number">1</span>]) {</span><br><span class="line">      <span class="keyword">if</span> (ascendentCount) {	</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&apos;&#x4E71;&#x5E8F;&apos;</span></span><br><span class="line">      }</span><br><span class="line">      decendentCount++</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">if</span> (ascendentCount === <span class="number">0</span> &amp;&amp; decendentCount === <span class="number">0</span>) {	</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&apos;&#x5E73;&#x5E8F;&apos;</span></span><br><span class="line">  } <span class="keyword">else</span> <span class="keyword">if</span> (decendentCount === <span class="number">0</span>) {	</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&apos;&#x5347;&#x5E8F;&apos;</span></span><br><span class="line">  } <span class="keyword">else</span> {	</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&apos;&#x964D;&#x5E8F;&apos;</span></span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(getArrOrder(testArr))</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -614,7 +632,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

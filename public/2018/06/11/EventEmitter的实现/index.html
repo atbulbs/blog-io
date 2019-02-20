@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="EventEmitter的实现">
 <meta property="og:url" content="https://atbulbs.github.io/2018/06/11/EventEmitter的实现/index.html">
-<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:site_name" content="atbubls(Jason Liao)">
 <meta property="og:description" content="¶ES6的实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-25T07:04:42.189Z">
+<meta property="og:updated_time" content="2019-02-20T03:08:46.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventEmitter的实现">
 <meta name="twitter:description" content="¶ES6的实现">
@@ -131,7 +131,7 @@
 
 
 
-  <title>EventEmitter的实现 | 8bubls(Jason Liao)</title>
+  <title>EventEmitter的实现 | atbubls(Jason Liao)</title>
   
 
 
@@ -161,7 +161,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="site-title">atbubls(Jason Liao)</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -277,7 +277,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -357,9 +357,27 @@
       
 
       
-        <h3 id="es6的实现"><a class="header-anchor" href="#es6的实现">¶</a>ES6的实现</h3>
+        <h3 id="es6&#x7684;&#x5B9E;&#x73B0;"><a class="header-anchor" href="#es6&#x7684;&#x5B9E;&#x73B0;">&#xB6;</a>ES6&#x7684;&#x5B9E;&#x73B0;</h3>
 <a id="more"></a>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">EventEmitter</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> () &#123;</span><br><span class="line">    <span class="keyword">this</span>.listenerList = &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  on (e, cb) &#123;</span><br><span class="line">    <span class="keyword">const</span> cbs = <span class="keyword">this</span>.listenerList[e] || []</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> cb !== <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">`<span class="subst">$&#123;e&#125;</span>.<span class="subst">$&#123;cb&#125;</span> is not a function`</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      cbs.push(cb)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.listenerList[e] = cbs</span><br><span class="line">  &#125;</span><br><span class="line">  emit (e) &#123;</span><br><span class="line">    <span class="keyword">const</span> cbs = <span class="keyword">this</span>.listenerList[e]</span><br><span class="line">    <span class="keyword">const</span> restArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> (cbs &amp;&amp; cbs.length) &#123;</span><br><span class="line">      cbs.forEach(<span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">        cb(restArgs)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  off (e, fn) &#123;</span><br><span class="line">    <span class="keyword">const</span> cbs = <span class="keyword">this</span>.listenerList[e]</span><br><span class="line">    <span class="keyword">if</span> (cbs &amp;&amp; cbs.length) &#123;</span><br><span class="line">      <span class="keyword">if</span> (fn &amp;&amp; cbs.includes(fn)) &#123;</span><br><span class="line">        <span class="keyword">const</span> index = cbs.indexOf(fn)</span><br><span class="line">        cbs.splice(index, <span class="number">1</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!fn) &#123;</span><br><span class="line">        <span class="keyword">delete</span> <span class="keyword">this</span>.listenerList[e]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">EventEmitter</span> </span>{</span><br><span class="line">  <span class="keyword">constructor</span> () {</span><br><span class="line">    <span class="keyword">this</span>.listenerList = {}</span><br><span class="line">  }</span><br><span class="line">  on (e, cb) {</span><br><span class="line">    <span class="keyword">const</span> cbs = <span class="keyword">this</span>.listenerList[e] || []</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> cb !== <span class="string">&apos;function&apos;</span>) {</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">`<span class="subst">${e}</span>.<span class="subst">${cb}</span> is not a function`</span>)</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      cbs.push(cb)</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">this</span>.listenerList[e] = cbs</span><br><span class="line">  }</span><br><span class="line">  emit (e) {</span><br><span class="line">    <span class="keyword">const</span> cbs = <span class="keyword">this</span>.listenerList[e]</span><br><span class="line">    <span class="keyword">const</span> restArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> (cbs &amp;&amp; cbs.length) {</span><br><span class="line">      cbs.forEach(<span class="function">(<span class="params">cb</span>) =&gt;</span> {</span><br><span class="line">        cb(restArgs)</span><br><span class="line">      })</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">  off (e, fn) {</span><br><span class="line">    <span class="keyword">const</span> cbs = <span class="keyword">this</span>.listenerList[e]</span><br><span class="line">    <span class="keyword">if</span> (cbs &amp;&amp; cbs.length) {</span><br><span class="line">      <span class="keyword">if</span> (fn &amp;&amp; cbs.includes(fn)) {</span><br><span class="line">        <span class="keyword">const</span> index = cbs.indexOf(fn)</span><br><span class="line">        cbs.splice(index, <span class="number">1</span>)</span><br><span class="line">      } <span class="keyword">else</span> <span class="keyword">if</span> (!fn) {</span><br><span class="line">        <span class="keyword">delete</span> <span class="keyword">this</span>.listenerList[e]</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -605,7 +623,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
