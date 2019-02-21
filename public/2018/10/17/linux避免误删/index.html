@@ -84,10 +84,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux避免误删">
 <meta property="og:url" content="https://atbulbs.github.io/2018/10/17/linux避免误删/index.html">
-<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:site_name" content="atbubls(Jason Liao)">
 <meta property="og:description" content="1234$ cd$ cd ../../home$ mkdir -p ~/.Trash$ vi ~/.bashrc">
 <meta property="og:locale" content="zh-Hans">
+<<<<<<< HEAD
 <meta property="og:updated_time" content="2019-02-19T12:23:17.505Z">
+=======
+<meta property="og:updated_time" content="2019-02-20T03:08:46.512Z">
+>>>>>>> 58ae38fae452d3fa2b7f5b7e9ec6045e40381c0e
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux避免误删">
 <meta name="twitter:description" content="1234$ cd$ cd ../../home$ mkdir -p ~/.Trash$ vi ~/.bashrc">
@@ -131,7 +135,7 @@
 
 
 
-  <title>linux避免误删 | 8bubls(Jason Liao)</title>
+  <title>linux避免误删 | atbubls(Jason Liao)</title>
   
 
 
@@ -161,7 +165,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="site-title">atbubls(Jason Liao)</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -277,7 +281,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -357,14 +361,32 @@
       
 
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ <span class="built_in">cd</span> ../../home</span><br><span class="line">$ mkdir -p ~/.Trash</span><br><span class="line">$ vi ~/.bashrc</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ <span class="built_in">cd</span> ../../home</span><br><span class="line">$ mkdir -p ~/.Trash</span><br><span class="line">$ vi ~/.bashrc</span><br></pre></td></tr></tbody></table></figure>
 <a id="more"></a>
-<p>贴入如下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">alias rm=trash        </span><br><span class="line">alias rl=&apos;ls ~/.Trash&apos;  </span><br><span class="line">alias ur=undelfile  </span><br><span class="line">undelfile()  </span><br><span class="line">&#123;  </span><br><span class="line">  mv -i ~/.Trash/$@ ./  </span><br><span class="line">&#125;  </span><br><span class="line">trash()  </span><br><span class="line">&#123;  </span><br><span class="line">  mv $@ ~/.Trash/  </span><br><span class="line">&#125;</span><br><span class="line">cleartrash()  </span><br><span class="line">&#123;  </span><br><span class="line">    read -p &quot;Clear trash?[n]&quot; confirm  </span><br><span class="line">    [ $confirm == &apos;y&apos; ] || [ $confirm == &apos;Y&apos; ]  &amp;&amp; /usr/bin/rm -rf ~/.Trash/*  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-<p>至此可用指令 rm(删除), ur(撤销), rl(列出回收站), cleartrash(清空回收站）</p>
-<p>参考： <a href="http://www.cnblogs.com/qzqdy/p/9299595.html" target="_blank" rel="noopener">http://www.cnblogs.com/qzqdy/p/9299595.html</a></p>
-
+<p>&#x8D34;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801;</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">alias rm=trash        </span><br><span class="line">alias rl=&apos;ls ~/.Trash&apos;  </span><br><span class="line">alias ur=undelfile  </span><br><span class="line">undelfile()  </span><br><span class="line">{  </span><br><span class="line">  mv -i ~/.Trash/$@ ./  </span><br><span class="line">}  </span><br><span class="line">trash()  </span><br><span class="line">{  </span><br><span class="line">  mv $@ ~/.Trash/  </span><br><span class="line">}</span><br><span class="line">cleartrash()  </span><br><span class="line">{  </span><br><span class="line">    read -p &quot;Clear trash?[n]&quot; confirm  </span><br><span class="line">    [ $confirm == &apos;y&apos; ] || [ $confirm == &apos;Y&apos; ]  &amp;&amp; /usr/bin/rm -rf ~/.Trash/*  </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></tbody></table></figure>
+<p>&#x81F3;&#x6B64;&#x53EF;&#x7528;&#x6307;&#x4EE4; rm(&#x5220;&#x9664;), ur(&#x64A4;&#x9500;), rl(&#x5217;&#x51FA;&#x56DE;&#x6536;&#x7AD9;), cleartrash(&#x6E05;&#x7A7A;&#x56DE;&#x6536;&#x7AD9;&#xFF09;</p>
+<p>&#x53C2;&#x8003;&#xFF1A; <a href="http://www.cnblogs.com/qzqdy/p/9299595.html" target="_blank" rel="noopener">http://www.cnblogs.com/qzqdy/p/9299595.html</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -423,8 +445,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+<<<<<<< HEAD
               <a href="/2018/10/17/mac chrome快捷键/" rel="next" title="mac chrome快捷键">
                 <i class="fa fa-chevron-left"></i> mac chrome快捷键
+=======
+              <a href="/2018/10/15/2018-10-15stylus让你用更骚的姿势写css/" rel="next" title="stylus让你用更骚的姿势写css">
+                <i class="fa fa-chevron-left"></i> stylus让你用更骚的姿势写css
+>>>>>>> 58ae38fae452d3fa2b7f5b7e9ec6045e40381c0e
               </a>
             
           </div>

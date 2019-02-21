@@ -84,7 +84,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="this is it in JavaScript">
 <meta property="og:url" content="https://atbulbs.github.io/2018/07/01/this is it  in JavaScript /index.html">
-<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:site_name" content="atbubls(Jason Liao)">
 <meta property="og:description" content="¶this是什么        函数是语句的容器, 而this代表函数调用invocation时的上下文环境context ¶this从哪里来        每个函数默认会接收两个附加的参数, this和arguments ¶this的5种应用场景">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://atbulbs.github.io/images/this/window.png">
@@ -92,7 +92,11 @@
 <meta property="og:image" content="https://atbulbs.github.io/images/this/window-obj.png">
 <meta property="og:image" content="https://atbulbs.github.io/images/this/global-obj.png">
 <meta property="og:image" content="https://atbulbs.github.io/images/this/new.png">
+<<<<<<< HEAD
 <meta property="og:updated_time" content="2019-02-19T12:23:17.506Z">
+=======
+<meta property="og:updated_time" content="2019-02-20T03:08:46.514Z">
+>>>>>>> 58ae38fae452d3fa2b7f5b7e9ec6045e40381c0e
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this is it in JavaScript">
 <meta name="twitter:description" content="¶this是什么        函数是语句的容器, 而this代表函数调用invocation时的上下文环境context ¶this从哪里来        每个函数默认会接收两个附加的参数, this和arguments ¶this的5种应用场景">
@@ -137,7 +141,7 @@
 
 
 
-  <title>this is it in JavaScript | 8bubls(Jason Liao)</title>
+  <title>this is it in JavaScript | atbubls(Jason Liao)</title>
   
 
 
@@ -167,7 +171,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="site-title">atbubls(Jason Liao)</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -283,7 +287,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -363,41 +367,59 @@
       
 
       
-        <h2 id="this是什么"><a class="header-anchor" href="#this是什么">¶</a>this是什么</h2>
-<p>       函数是语句的容器, 而this代表函数调用invocation时的上下文环境context</p>
-<h2 id="this从哪里来"><a class="header-anchor" href="#this从哪里来">¶</a>this从哪里来</h2>
-<p>       每个函数默认会接收两个附加的参数, this和arguments</p>
-<h2 id="this的5种应用场景"><a class="header-anchor" href="#this的5种应用场景">¶</a>this的5种应用场景</h2>
+        <h2 id="this&#x662F;&#x4EC0;&#x4E48;"><a class="header-anchor" href="#this&#x662F;&#x4EC0;&#x4E48;">&#xB6;</a>this&#x662F;&#x4EC0;&#x4E48;</h2>
+<p>&#xA0; &#xA0; &#xA0; &#xA0;&#x51FD;&#x6570;&#x662F;&#x8BED;&#x53E5;&#x7684;&#x5BB9;&#x5668;, &#x800C;this&#x4EE3;&#x8868;&#x51FD;&#x6570;&#x8C03;&#x7528;invocation&#x65F6;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;context</p>
+<h2 id="this&#x4ECE;&#x54EA;&#x91CC;&#x6765;"><a class="header-anchor" href="#this&#x4ECE;&#x54EA;&#x91CC;&#x6765;">&#xB6;</a>this&#x4ECE;&#x54EA;&#x91CC;&#x6765;</h2>
+<p>&#xA0; &#xA0; &#xA0; &#xA0;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x9ED8;&#x8BA4;&#x4F1A;&#x63A5;&#x6536;&#x4E24;&#x4E2A;&#x9644;&#x52A0;&#x7684;&#x53C2;&#x6570;, this&#x548C;arguments</p>
+<h2 id="this&#x7684;5&#x79CD;&#x5E94;&#x7528;&#x573A;&#x666F;"><a class="header-anchor" href="#this&#x7684;5&#x79CD;&#x5E94;&#x7528;&#x573A;&#x666F;">&#xB6;</a>this&#x7684;5&#x79CD;&#x5E94;&#x7528;&#x573A;&#x666F;</h2>
 <a id="more"></a>
 <ol>
 <li>
-<p>函数调用<br>
-       当函数不作为宿主全局Global对象(浏览器里为window, node.js里为global)以外的对象的方法来调用时, this指向全局对象<br>
+<p>&#x51FD;&#x6570;&#x8C03;&#x7528;<br>
+&#xA0; &#xA0; &#xA0; &#xA0;&#x5F53;&#x51FD;&#x6570;&#x4E0D;&#x4F5C;&#x4E3A;&#x5BBF;&#x4E3B;&#x5168;&#x5C40;Global&#x5BF9;&#x8C61;(&#x6D4F;&#x89C8;&#x5668;&#x91CC;&#x4E3A;window, node.js&#x91CC;&#x4E3A;global)&#x4EE5;&#x5916;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8C03;&#x7528;&#x65F6;, this&#x6307;&#x5411;&#x5168;&#x5C40;&#x5BF9;&#x8C61;<br>
 <img src="/images/this/window.png" alt="window"><br>
 <img src="/images/this/global.png" alt="global"></p>
 </li>
 <li>
-<p>方法调用<br>
-       当函数作为宿主全局Global对象(浏览器里为window, node.js里为global)以外的对象的方法来调用时, this指向该方法的拥有者对象<br>
+<p>&#x65B9;&#x6CD5;&#x8C03;&#x7528;<br>
+&#xA0; &#xA0; &#xA0; &#xA0;&#x5F53;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x5BBF;&#x4E3B;&#x5168;&#x5C40;Global&#x5BF9;&#x8C61;(&#x6D4F;&#x89C8;&#x5668;&#x91CC;&#x4E3A;window, node.js&#x91CC;&#x4E3A;global)&#x4EE5;&#x5916;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8C03;&#x7528;&#x65F6;, this&#x6307;&#x5411;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x62E5;&#x6709;&#x8005;&#x5BF9;&#x8C61;<br>
 <img src="/images/this/window-obj.png" alt="window-obj"><br>
 <img src="/images/this/global-obj.png" alt="global-obj"></p>
 </li>
 <li>
-<p>构造器调用<br>
-       当函数被new调用时, this指向连接到该函数原型对象的新对象<br>
+<p>&#x6784;&#x9020;&#x5668;&#x8C03;&#x7528;<br>
+&#xA0; &#xA0; &#xA0; &#xA0;&#x5F53;&#x51FD;&#x6570;&#x88AB;new&#x8C03;&#x7528;&#x65F6;, this&#x6307;&#x5411;&#x8FDE;&#x63A5;&#x5230;&#x8BE5;&#x51FD;&#x6570;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x65B0;&#x5BF9;&#x8C61;<br>
 <img src="/images/this/new.png" alt="new"></p>
 </li>
 <li>
-<p>转移上下文调用<br>
-       apply, call, bind是函数的方法, 会将函数执行时的this指向作为参数传入的对象</p>
+<p>&#x8F6C;&#x79FB;&#x4E0A;&#x4E0B;&#x6587;&#x8C03;&#x7528;<br>
+&#xA0; &#xA0; &#xA0; &#xA0;apply, call, bind&#x662F;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x6CD5;, &#x4F1A;&#x5C06;&#x51FD;&#x6570;&#x6267;&#x884C;&#x65F6;&#x7684;this&#x6307;&#x5411;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x7684;&#x5BF9;&#x8C61;</p>
 </li>
 <li>
-<p>箭头函数调用<br>
-       箭头函数中的this指向定义时所在的对象, 而不是使用时所在的对象</p>
+<p>&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x8C03;&#x7528;<br>
+&#xA0; &#xA0; &#xA0; &#xA0;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4E2D;&#x7684;this&#x6307;&#x5411;&#x5B9A;&#x4E49;&#x65F6;&#x6240;&#x5728;&#x7684;&#x5BF9;&#x8C61;, &#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;&#x65F6;&#x6240;&#x5728;&#x7684;&#x5BF9;&#x8C61;</p>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 借用阮大大的栗子</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'id:'</span>, <span class="keyword">this</span>.id)</span><br><span class="line">  &#125;, <span class="number">100</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span></span><br><span class="line"></span><br><span class="line">foo.call(&#123; <span class="attr">id</span>: <span class="number">42</span> &#125;)</span><br><span class="line"><span class="comment">// id: 42</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x501F;&#x7528;&#x962E;&#x5927;&#x5927;&#x7684;&#x6817;&#x5B50;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>{</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;id:&apos;</span>, <span class="keyword">this</span>.id)</span><br><span class="line">  }, <span class="number">100</span>)</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span></span><br><span class="line"></span><br><span class="line">foo.call({ <span class="attr">id</span>: <span class="number">42</span> })</span><br><span class="line"><span class="comment">// id: 42</span></span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     

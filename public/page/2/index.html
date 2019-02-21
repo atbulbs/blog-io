@@ -81,12 +81,12 @@
 
 <meta name="keywords" content="撸码 撸铁 吃饭 洗澡 睡觉">
 <meta property="og:type" content="website">
-<meta property="og:title" content="8bubls(Jason Liao)">
+<meta property="og:title" content="atbubls(Jason Liao)">
 <meta property="og:url" content="https://atbulbs.github.io/page/2/index.html">
-<meta property="og:site_name" content="8bubls(Jason Liao)">
+<meta property="og:site_name" content="atbubls(Jason Liao)">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="8bubls(Jason Liao)">
+<meta name="twitter:title" content="atbubls(Jason Liao)">
 
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>8bubls(Jason Liao)</title>
+  <title>atbubls(Jason Liao)</title>
   
 
 
@@ -158,7 +158,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">8bubls(Jason Liao)</span>
+        <span class="site-title">atbubls(Jason Liao)</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -274,7 +274,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -415,7 +415,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://atbulbs.github.io/2018/10/17/linux常用命令/">
+    <link itemprop="mainEntityOfPage" href="https://atbulbs.github.io/2018/10/17/linux避免误删/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="atbulbs">
@@ -424,7 +424,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -434,7 +434,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/17/linux常用命令/" itemprop="url">linux常用命令</a></h1>
+                <a class="post-title-link" href="/2018/10/17/linux避免误删/" itemprop="url">linux避免误删</a></h1>
         
 
         <div class="post-meta">
@@ -507,18 +507,10 @@
 
       
         
-          <ul>
-<li>
-<p>重命名文件夹 <code>mv preName nextName</code></p>
-</li>
-<li>
-<p>删除文件(慎用)</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm -rf <span class="comment"># remove recursive force</span></span><br></pre></td></tr></table></figure>
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span></span><br><span class="line">$ <span class="built_in">cd</span> ../../home</span><br><span class="line">$ mkdir -p ~/.Trash</span><br><span class="line">$ vi ~/.bashrc</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/17/linux常用命令/" rel="contents">
+            <a class="btn" href="/2018/10/17/linux避免误删/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -578,7 +570,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -726,7 +718,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -877,7 +869,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -961,7 +953,11 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
       
         
           <h2 id="从javascript的单线程谈起"><a class="header-anchor" href="#从javascript的单线程谈起">¶</a>从JavaScript的单线程谈起</h2>
+<<<<<<< HEAD
 <p>       什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根就找不到DOM_FOO,这下就尴尬了<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v7" height="20" width="20">, 完不成任务该咋整啊, 要主人来一套锁机制吧, 会不会成本太高, 布兰登巴巴一开始就把它设计成了单线程(而且与浏览器渲染DOM共用一个线程), 并被瑞安大大发扬光大, 膜拜一下我JS两大男神<img class="github-emoji" title="heart_eyes" alt="heart_eyes" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v7" height="20" width="20"></p>
+=======
+<p>       什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根就找不到DOM_FOO,这下就尴尬了😂, 完不成任务该咋整啊, 要主人来一套锁机制吧, 会不会成本太高, 布兰登巴巴一开始就把它设计成了单线程(而且与浏览器渲染DOM共用一个线程), 并被瑞安大大发扬光大, 膜拜一下我JS两大男神😍</p>
+>>>>>>> 58ae38fae452d3fa2b7f5b7e9ec6045e40381c0e
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/27/从JS运行机制谈Vue的nextTick/" rel="contents">
@@ -1024,7 +1020,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -1174,7 +1170,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -1321,7 +1317,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -1471,7 +1467,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     
@@ -1555,8 +1551,13 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
       
         
           <h1>atbulbs-project webpack-vue</h1>
+<<<<<<< HEAD
 <p>       模块化强迫症<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v7" height="20" width="20">webpack配置工程师<img class="github-emoji" title="sunglasses" alt="sunglasses" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60e.png?v7" height="20" width="20">的webpack-vue配置,采用最新的webpack v-4.16和vue-loader v-15.3, 开箱<img class="github-emoji" title="package" alt="package" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f4e6.png?v7" height="20" width="20">即用, 引入vw适配(建议UI图为375px宽度, 写px单位会自动转为vw)和wechat-js-sdk(方便二次分享以及调用微信其他API),二次封装axios,更高效<img class="github-emoji" title="rocket" alt="rocket" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png?v7" height="20" width="20">更激爽<img class="github-emoji" title="kiss" alt="kiss" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f48b.png?v7" height="20" width="20">的构建H5项目</p>
 <h2 id="基于此配置构建的组件-插件库-自己撸的一些小轮子-welcome-npm-install-img-class-github-emoji-title-smile-alt-smile-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f604-png-v7-height-20-width-20"><a class="header-anchor" href="#基于此配置构建的组件-插件库-自己撸的一些小轮子-welcome-npm-install-img-class-github-emoji-title-smile-alt-smile-src-https-assets-cdn-github-com-images-icons-emoji-unicode-1f604-png-v7-height-20-width-20">¶</a>基于此配置构建的组件/插件库, 自己撸的一些小轮子, welcome npm install <img class="github-emoji" title="smile" alt="smile" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7" height="20" width="20"></h2>
+=======
+<p>       模块化强迫症😂webpack配置工程师😎的webpack-vue配置,采用最新的webpack v-4.16和vue-loader v-15.3, 开箱📦即用, 引入vw适配(建议UI图为375px宽度, 写px单位会自动转为vw)和wechat-js-sdk(方便二次分享以及调用微信其他API),二次封装axios,更高效🚀更激爽💋的构建H5项目</p>
+<h2 id="基于此配置构建的组件-插件库-自己撸的一些小轮子-welcome-npm-install-😄"><a class="header-anchor" href="#基于此配置构建的组件-插件库-自己撸的一些小轮子-welcome-npm-install-😄">¶</a>基于此配置构建的组件/插件库, 自己撸的一些小轮子, welcome npm install 😄</h2>
+>>>>>>> 58ae38fae452d3fa2b7f5b7e9ec6045e40381c0e
 <blockquote>
 <p>npm package  <a href="https://www.npmjs.com/package/jsl-vue-h5" target="_blank" rel="noopener">https://www.npmjs.com/package/jsl-vue-h5</a></p>
 </blockquote>
@@ -1631,7 +1632,7 @@ b方案: 用div背景图取代img标签, 此方法虽简单粗暴, 不太好做�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="8bubls(Jason Liao)">
+      <meta itemprop="name" content="atbubls(Jason Liao)">
     </span>
 
     

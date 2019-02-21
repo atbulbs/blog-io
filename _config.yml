@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 8bubls(Jason Liao)
+title: atbubls(Jason Liao)
 subtitle: more code, more exercise, more happy
 description: </>
 keywords: 撸码 撸铁 吃饭 洗澡 睡觉
@@ -104,7 +104,7 @@ markdown:
     collisionSuffix: 'v'
     permalink: true
     permalinkClass: header-anchor
-    permalinkSymbol: ¶
+    # permalinkSymbol: ¶
 
 githubEmojis:
   enable: true

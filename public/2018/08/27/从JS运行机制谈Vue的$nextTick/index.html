@@ -87,8 +87,8 @@
 <meta property="og:site_name" content="8bubls(Jason Liao)">
 <meta property="og:description" content="¶从JavaScript的单线程谈起  JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
-<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8">
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/brendan-eich.jpg">
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/ryan-dahl.jpg">
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/event-loop.png">
@@ -100,7 +100,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从JS运行机制谈Vue的nextTick">
 <meta name="twitter:description" content="¶从JavaScript的单线程谈起  JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根">
-<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
+<meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8">
 
 
 
@@ -369,7 +369,7 @@
       
         <h2 id="从javascript的单线程谈起"><a class="header-anchor" href="#从javascript的单线程谈起">¶</a>从JavaScript的单线程谈起</h2>
 <ol>
-<li>JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根就找不到DOM_FOO,这下就尴尬了<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20">, 完不成任务该咋整啊, 要主人来一套锁机制吧, 会不会成本太高, 布兰登巴巴一开始就把它设计成了单线程, 并被瑞安大大发扬光大, 膜拜一下我JS两大男神<img class="github-emoji" title="heart_eyes" alt="heart_eyes" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v8" height="20" width="20"></li>
+<li>JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根就找不到DOM_FOO,这下就尴尬了<img class="github-emoji" title="joy" alt="joy" src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20">, 完不成任务该咋整啊, 要主人来一套锁机制吧, 会不会成本太高, 布兰登巴巴一开始就把它设计成了单线程, 并被瑞安大大发扬光大, 膜拜一下我JS两大男神<img class="github-emoji" title="heart_eyes" alt="heart_eyes" src="https://github.githubassets.com/images/icons/emoji/unicode/1f60d.png?v8" height="20" width="20"></li>
 </ol>
 <a id="more"></a>
 <p><img src="/images/next-tick/brendan-eich.jpg" alt="brendan-eich"></p>
