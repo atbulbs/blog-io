@@ -4,9 +4,9 @@
 
 # Site
 title: atbubls(Jason Liao)
-subtitle: more code, more exercise, more happy
+subtitle: more exercises, more happiness
 description: </>
-keywords: 撸码 撸铁 吃饭 洗澡 睡觉
+# keywords: 撸码 撸铁 吃饭 洗澡 睡觉
 author: atbulbs
 language: zh-Hans
 timezone:
@@ -112,3 +112,9 @@ githubEmojis:
   unicode: false
   styles:
   localEmojis:
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000

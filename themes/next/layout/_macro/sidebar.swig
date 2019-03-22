@@ -45,6 +45,9 @@
           </div>
 
           <nav class="site-state motion-element">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=293 height=86 src="//music.163.com/outchain/player?type=2&id=402073046&auto=1&height=66"></iframe>
+          </nav>
+          <nav class="site-state motion-element">
 
             {% if config.archive_dir != '/' and site.posts.length > 0 %}
               <div class="site-state-item site-state-posts">

@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -87,11 +94,6 @@
 <meta property="og:site_name" content="atbubls(Jason Liao)">
 <meta property="og:description" content="¶从JavaScript的单线程谈起        什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把D">
 <meta property="og:locale" content="zh-Hans">
-<<<<<<< HEAD
-<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v7">
-<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v7">
-=======
->>>>>>> 58ae38fae452d3fa2b7f5b7e9ec6045e40381c0e
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/brendan-eich.jpg">
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/ryan-dahl.jpg">
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/event-loop.png">
@@ -99,19 +101,11 @@
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/vue-doc-2.png">
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/global-api.png">
 <meta property="og:image" content="https://atbulbs.github.io/images/next-tick/instance-render.png">
-<<<<<<< HEAD
-<meta property="og:updated_time" content="2019-02-19T12:23:17.507Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从JS运行机制谈Vue的nextTick">
-<meta name="twitter:description" content="¶从JavaScript的单线程谈起        什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把D">
-<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v7">
-=======
-<meta property="og:updated_time" content="2019-02-20T03:08:46.515Z">
+<meta property="og:updated_time" content="2019-03-21T08:40:21.906Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从JS运行机制谈Vue的nextTick">
 <meta name="twitter:description" content="¶从JavaScript的单线程谈起        什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把D">
 <meta name="twitter:image" content="https://atbulbs.github.io/images/next-tick/brendan-eich.jpg">
->>>>>>> 58ae38fae452d3fa2b7f5b7e9ec6045e40381c0e
 
 
 
@@ -173,6 +167,7 @@
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
+    <a href="https://www.github.com/atbulbs" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -187,7 +182,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">more code, more exercise, more happy</p>
+        <p class="site-subtitle">more exercises, more happiness</p>
       
   </div>
 
@@ -378,13 +373,8 @@
       
 
       
-<<<<<<< HEAD
-        <h2 id="从javascript的单线程谈起"><a class="header-anchor" href="#从javascript的单线程谈起">¶</a>从JavaScript的单线程谈起</h2>
-<p>       什么是单线程, 大白话: 同一时间, 只能做一件事情. JavaScript的诞生主要是为了操作DOM, 如果有多个线程, 假设线程A在它的时间片里去修改DOM_FOO, 但是来不及修改完就得退出CPU, 进入就绪状态, 等待下一次调度, 接着线程B占用CPU, 然而它的任务是删除DOM_FOO, 而且线程B这哥们比较麻溜儿的在一个时间片里就把DOM_FOO给干掉了, 功成身退, 等到线程A再来执行任务的时候压根就找不到DOM_FOO,这下就尴尬了<img class="github-emoji" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v7" height="20" width="20">, 完不成任务该咋整啊, 要主人来一套锁机制吧, 会不会成本太高, 布兰登巴巴一开始就把它设计成了单线程(而且与浏览器渲染DOM共用一个线程), 并被瑞安大大发扬光大, 膜拜一下我JS两大男神<img class="github-emoji" title="heart_eyes" alt="heart_eyes" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png?v7" height="20" width="20"></p>
-=======
         <h2 id="&#x4ECE;javascript&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x8C08;&#x8D77;"><a class="header-anchor" href="#&#x4ECE;javascript&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x8C08;&#x8D77;">&#xB6;</a>&#x4ECE;JavaScript&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#x8C08;&#x8D77;</h2>
 <p>&#xA0; &#xA0; &#xA0; &#xA0;&#x4EC0;&#x4E48;&#x662F;&#x5355;&#x7EBF;&#x7A0B;, &#x5927;&#x767D;&#x8BDD;: &#x540C;&#x4E00;&#x65F6;&#x95F4;, &#x53EA;&#x80FD;&#x505A;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;. JavaScript&#x7684;&#x8BDE;&#x751F;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x64CD;&#x4F5C;DOM, &#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;, &#x5047;&#x8BBE;&#x7EBF;&#x7A0B;A&#x5728;&#x5B83;&#x7684;&#x65F6;&#x95F4;&#x7247;&#x91CC;&#x53BB;&#x4FEE;&#x6539;DOM_FOO, &#x4F46;&#x662F;&#x6765;&#x4E0D;&#x53CA;&#x4FEE;&#x6539;&#x5B8C;&#x5C31;&#x5F97;&#x9000;&#x51FA;CPU, &#x8FDB;&#x5165;&#x5C31;&#x7EEA;&#x72B6;&#x6001;, &#x7B49;&#x5F85;&#x4E0B;&#x4E00;&#x6B21;&#x8C03;&#x5EA6;, &#x63A5;&#x7740;&#x7EBF;&#x7A0B;B&#x5360;&#x7528;CPU, &#x7136;&#x800C;&#x5B83;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x5220;&#x9664;DOM_FOO, &#x800C;&#x4E14;&#x7EBF;&#x7A0B;B&#x8FD9;&#x54E5;&#x4EEC;&#x6BD4;&#x8F83;&#x9EBB;&#x6E9C;&#x513F;&#x7684;&#x5728;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x7247;&#x91CC;&#x5C31;&#x628A;DOM_FOO&#x7ED9;&#x5E72;&#x6389;&#x4E86;, &#x529F;&#x6210;&#x8EAB;&#x9000;, &#x7B49;&#x5230;&#x7EBF;&#x7A0B;A&#x518D;&#x6765;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x7684;&#x65F6;&#x5019;&#x538B;&#x6839;&#x5C31;&#x627E;&#x4E0D;&#x5230;DOM_FOO,&#x8FD9;&#x4E0B;&#x5C31;&#x5C34;&#x5C2C;&#x4E86;&#x1F602;, &#x5B8C;&#x4E0D;&#x6210;&#x4EFB;&#x52A1;&#x8BE5;&#x548B;&#x6574;&#x554A;, &#x8981;&#x4E3B;&#x4EBA;&#x6765;&#x4E00;&#x5957;&#x9501;&#x673A;&#x5236;&#x5427;, &#x4F1A;&#x4E0D;&#x4F1A;&#x6210;&#x672C;&#x592A;&#x9AD8;, &#x5E03;&#x5170;&#x767B;&#x5DF4;&#x5DF4;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x628A;&#x5B83;&#x8BBE;&#x8BA1;&#x6210;&#x4E86;&#x5355;&#x7EBF;&#x7A0B;(&#x800C;&#x4E14;&#x4E0E;&#x6D4F;&#x89C8;&#x5668;&#x6E32;&#x67D3;DOM&#x5171;&#x7528;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;), &#x5E76;&#x88AB;&#x745E;&#x5B89;&#x5927;&#x5927;&#x53D1;&#x626C;&#x5149;&#x5927;, &#x819C;&#x62DC;&#x4E00;&#x4E0B;&#x6211;JS&#x4E24;&#x5927;&#x7537;&#x795E;&#x1F60D;</p>
->>>>>>> 58ae38fae452d3fa2b7f5b7e9ec6045e40381c0e
 <a id="more"></a>
 <p><img src="/images/next-tick/brendan-eich.jpg" alt="brendan-eich"></p>
 <p><img src="/images/next-tick/ryan-dahl.jpg" alt="ryan-dahl"></p>
@@ -570,6 +560,9 @@
           </div>
 
           <nav class="site-state motion-element">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="293" height="86" src="//music.163.com/outchain/player?type=2&id=402073046&auto=1&height=66"></iframe>
+          </nav>
+          <nav class="site-state motion-element">
 
             
               <div class="site-state-item site-state-posts">
@@ -672,9 +665,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love love-heart">
+    <i class="fa fa-heart" aria-hidden="true"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">atbulbs</span>
 
@@ -682,15 +676,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
