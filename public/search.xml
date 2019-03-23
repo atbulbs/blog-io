@@ -78,9 +78,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[linux常用命令]]></title>
-    <url>%2F2018%2F10%2F17%2Flinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[&#x91CD;&#x547D;&#x540D;&#x6587;&#x4EF6;&#x5939; mv preName nextName &#x5220;&#x9664;&#x6587;&#x4EF6;(&#x614E;&#x7528;) 1$ rm -rf # remove recursive force &#x6E05;&#x9664;iTerm2&#x5C4F;&#x5E55;: control + l iTerm2&#x6253;&#x5F00;&#x65B0;tab: control + t &#x56DE;&#x5230;&#x6839;&#x76EE;&#x5F55;&#xFF1A; cd / cd ~ &#x5728;&#x6587;&#x4EF6;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;&#x76EE;&#x5F55;&#xFF1A; open dirName &#x5728;vscode&#x6253;&#x5F00;&#x76EE;&#x5F55;&#xFF1A; code dirName &#x663E;&#x793A;&#x9690;&#x85CF;&#x7684;&#x6587;&#x4EF6;&#xFF1A; ls -ah &#x663E;&#x793A;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF1A; pwd &#x67E5;&#x770B;ip ifconfig document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <title><![CDATA[linux避免误删]]></title>
+    <url>%2F2018%2F10%2F17%2Flinux%E9%81%BF%E5%85%8D%E8%AF%AF%E5%88%A0%2F</url>
+    <content type="text"><![CDATA[1234$ cd$ cd ../../home$ mkdir -p ~/.Trash$ vi ~/.bashrc &#x8D34;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801; 12345678910111213141516alias rm=trash alias rl=&apos;ls ~/.Trash&apos; alias ur=undelfile undelfile() { mv -i ~/.Trash/$@ ./ } trash() { mv $@ ~/.Trash/ }cleartrash() { read -p &quot;Clear trash?[n]&quot; confirm [ $confirm == &apos;y&apos; ] || [ $confirm == &apos;Y&apos; ] &amp;&amp; /usr/bin/rm -rf ~/.Trash/* } 1$ source ~/.bashrc &#x81F3;&#x6B64;&#x53EF;&#x7528;&#x6307;&#x4EE4; rm(&#x5220;&#x9664;), ur(&#x64A4;&#x9500;), rl(&#x5217;&#x51FA;&#x56DE;&#x6536;&#x7AD9;), cleartrash(&#x6E05;&#x7A7A;&#x56DE;&#x6536;&#x7AD9;&#xFF09; &#x53C2;&#x8003;&#xFF1A; http://www.cnblogs.com/qzqdy/p/9299595.html document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>linux</category>
       </categories>
@@ -89,9 +89,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[mac iterm2快捷键]]></title>
-    <url>%2F2018%2F10%2F17%2Fmac%20iterm2%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[&#x5207;&#x6362;&#x6807;&#x7B7E; command + left / right &#x53C2;&#x8003;https://blog.csdn.net/ws1352864983/article/details/51512904 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <title><![CDATA[mac vscode快捷键]]></title>
+    <url>%2F2018%2F10%2F17%2Fmac%20vscode%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[&#x591A;&#x5904;&#x5149;&#x6807; option + &#x9F20;&#x6807;&#x5DE6;&#x952E; &#x5411;&#x4E0B;&#x63D2;&#x5165;&#x4E00;&#x884C; command + enter &#x5411;&#x4E0A;&#x63D2;&#x5165;&#x4E00;&#x884C; shift + command + enter &#x5411;&#x4E0A; / &#x4E0B; &#x79FB;&#x52A8;&#x884C; option + up / down &#x5411;&#x4E0A; / &#x4E0B; &#x590D;&#x5236;&#x884C; shift + option + up / down &#x67E5;&#x627E; command + F &#x67E5;&#x627E;&#x4E0B;&#x4E00;&#x4E2A; command + G &#x6DFB;&#x52A0;&#x4E0B;&#x4E00;&#x4E2A;&#x67E5;&#x627E; command + D &#x9009;&#x53D6;&#x5168;&#x90E8;&#x4E0E;&#x5F53;&#x524D;&#x5339;&#x914D;&#x7684; shift + command + L &#x6CE8;&#x91CA; / &#x89E3;&#x6CE8;&#x91CA; command + / kill&#x5220;&#x9664;&#x4E00;&#x6574;&#x884C; shift + command + k document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>mac</category>
       </categories>
@@ -111,25 +111,25 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[mac vscode快捷键]]></title>
-    <url>%2F2018%2F10%2F17%2Fmac%20vscode%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[&#x591A;&#x5904;&#x5149;&#x6807; option + &#x9F20;&#x6807;&#x5DE6;&#x952E; &#x5411;&#x4E0B;&#x63D2;&#x5165;&#x4E00;&#x884C; command + enter &#x5411;&#x4E0A;&#x63D2;&#x5165;&#x4E00;&#x884C; shift + command + enter &#x5411;&#x4E0A; / &#x4E0B; &#x79FB;&#x52A8;&#x884C; option + up / down &#x5411;&#x4E0A; / &#x4E0B; &#x590D;&#x5236;&#x884C; shift + option + up / down &#x67E5;&#x627E; command + F &#x67E5;&#x627E;&#x4E0B;&#x4E00;&#x4E2A; command + G &#x6DFB;&#x52A0;&#x4E0B;&#x4E00;&#x4E2A;&#x67E5;&#x627E; command + D &#x9009;&#x53D6;&#x5168;&#x90E8;&#x4E0E;&#x5F53;&#x524D;&#x5339;&#x914D;&#x7684; shift + command + L &#x6CE8;&#x91CA; / &#x89E3;&#x6CE8;&#x91CA; command + / kill&#x5220;&#x9664;&#x4E00;&#x6574;&#x884C; shift + command + k document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
-      <categories>
-        <category>mac</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[linux避免误删]]></title>
-    <url>%2F2018%2F10%2F17%2Flinux%E9%81%BF%E5%85%8D%E8%AF%AF%E5%88%A0%2F</url>
-    <content type="text"><![CDATA[1234$ cd$ cd ../../home$ mkdir -p ~/.Trash$ vi ~/.bashrc &#x8D34;&#x5165;&#x5982;&#x4E0B;&#x4EE3;&#x7801; 12345678910111213141516alias rm=trash alias rl=&apos;ls ~/.Trash&apos; alias ur=undelfile undelfile() { mv -i ~/.Trash/$@ ./ } trash() { mv $@ ~/.Trash/ }cleartrash() { read -p &quot;Clear trash?[n]&quot; confirm [ $confirm == &apos;y&apos; ] || [ $confirm == &apos;Y&apos; ] &amp;&amp; /usr/bin/rm -rf ~/.Trash/* } 1$ source ~/.bashrc &#x81F3;&#x6B64;&#x53EF;&#x7528;&#x6307;&#x4EE4; rm(&#x5220;&#x9664;), ur(&#x64A4;&#x9500;), rl(&#x5217;&#x51FA;&#x56DE;&#x6536;&#x7AD9;), cleartrash(&#x6E05;&#x7A7A;&#x56DE;&#x6536;&#x7AD9;&#xFF09; &#x53C2;&#x8003;&#xFF1A; http://www.cnblogs.com/qzqdy/p/9299595.html document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <title><![CDATA[linux常用命令]]></title>
+    <url>%2F2018%2F10%2F17%2Flinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[&#x91CD;&#x547D;&#x540D;&#x6587;&#x4EF6;&#x5939; mv preName nextName &#x5220;&#x9664;&#x6587;&#x4EF6;(&#x614E;&#x7528;) 1$ rm -rf # remove recursive force &#x6E05;&#x9664;iTerm2&#x5C4F;&#x5E55;: control + l iTerm2&#x6253;&#x5F00;&#x65B0;tab: control + t &#x56DE;&#x5230;&#x6839;&#x76EE;&#x5F55;&#xFF1A; cd / cd ~ &#x5728;&#x6587;&#x4EF6;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;&#x76EE;&#x5F55;&#xFF1A; open dirName &#x5728;vscode&#x6253;&#x5F00;&#x76EE;&#x5F55;&#xFF1A; code dirName &#x663E;&#x793A;&#x9690;&#x85CF;&#x7684;&#x6587;&#x4EF6;&#xFF1A; ls -ah &#x663E;&#x793A;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF1A; pwd &#x67E5;&#x770B;ip ifconfig document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>linux</category>
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mac iterm2快捷键]]></title>
+    <url>%2F2018%2F10%2F17%2Fmac%20iterm2%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[&#x5207;&#x6362;&#x6807;&#x7B7E; command + left / right &#x53C2;&#x8003;https://blog.csdn.net/ws1352864983/article/details/51512904 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>mac</category>
+      </categories>
+      <tags>
+        <tag>mac</tag>
       </tags>
   </entry>
   <entry>
