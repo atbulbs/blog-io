@@ -11,6 +11,7 @@ ps:如果你是在手机上浏览,横屏体验更好哦~
 <!--more-->
 
 # webpack简介
+webpack的核心定义: 一个模块打包器(能识别ES Moudule和CommonJS规范和其他如css格式的文件)
 >一图胜百文,如下是webpack官网的示意图,在webpack的世界里,一切资源都是模块,包括代码文件、图片文件、字体文件等，webpack会处理这些模块的依赖关系,大白话就是顺藤:herb:摸:hand:瓜:watermelon:,找到你项目用到的所有的资源文件,然后打包成我们想要的静态资源
 ![webpack](/images/webpack3/webpack.jpg)
 
