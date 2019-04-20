@@ -15,7 +15,7 @@ export class EventEmitter {
   on (e, cb) {
     const cbs = this.listenerList[e] || []
     if (typeof cb !== 'function') {
-      throw new TypeError(`${e}.${cb} is not a function`)
+      throw new TypeError(`${cb} is not a function`)
     } else {
       cbs.push(cb)
     }
@@ -26,7 +26,7 @@ export class EventEmitter {
     const restArgs = Array.prototype.slice.call(arguments, 1)
     if (cbs && cbs.length) {
       cbs.forEach((cb) => {
-        cb(restArgs)
+        cb(...restArgs)
       })
     }
   }
