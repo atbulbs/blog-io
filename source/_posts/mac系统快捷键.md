@@ -13,6 +13,7 @@ categories: mac
 * hide隐藏最上层窗口 `command + H`
 * 隐藏最上层以外的窗口 `command + option + H`
 * 复制 / 粘贴 / 全选 / 撤销 `command + C / V / A / Z`
+* 删除文件到废纸篓 `command + backspace`
 * 浏览器刷新页面 `command + r`
 * 自定义快捷键打开app[https://www.jianshu.com/p/abeb1123178d](https://www.jianshu.com/p/abeb1123178d)
 * 自定义打开 iTerm2 `command + .`
