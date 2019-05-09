@@ -104,7 +104,7 @@ markdown:
     collisionSuffix: 'v'
     permalink: true
     permalinkClass: header-anchor
-    # permalinkSymbol: ¶
+    permalinkSymbol: ¶
 
 githubEmojis:
   enable: true
