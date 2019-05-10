@@ -472,6 +472,19 @@ navigator.mediaDevices.getUserMedia(myConstraints).then((stream) => {
 })
 ```
 
+## Web Notification
+  官方文档: https://www.w3.org/TR/notifications/
+  参考文档: https://www.zhangxinxu.com/wordpress/2016/07/know-html5-web-notification/
+
+### 应用场景:
+  * 消息推送, 聊天
+  
+### 兼容性
+  compatibility: 
+  
+### demo
+  https://www.zhangxinxu.com/study/201607/web-notifications.html
+
 # Semantics 语义相关
 
 ## MATHML 数学标签
@@ -539,6 +552,7 @@ window.addEventListener('offline', updateOnlineStatus)
 
 ### 兼容性
   compatibility: https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine#Browser_compatibility
+
 
 # 本文参考的其他文档
   * https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
