@@ -1,5 +1,5 @@
 ---
-title: Fantastic H5 API
+title: Fantastic H5
 date: 2019-05-07
 tags: HTML5
 categories: HTML5
@@ -20,7 +20,7 @@ categories: HTML5
   亲测微信小程序webview支持
 ### demo
   https://www.audero.it/demo/vibration-api-demo.html
-<!-- more -->
+
 ```javascript
 window.navigator.vibrate(1000)
 window.navigator.vibrate([1000, 1000, 2000, 1000, 3000])
@@ -40,7 +40,9 @@ window.navigator.vibrate([0])
 ### 兼容性
   compatibility: https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery#Browser_compatibility
   亲测微信小程序webview支持
+
 <!-- more -->
+
 ### demo 
 ```html
 <!DOCTYPE html>
@@ -480,7 +482,7 @@ navigator.mediaDevices.getUserMedia(myConstraints).then((stream) => {
   * 消息推送, 聊天
   
 ### 兼容性
-  compatibility: 
+  compatibility: https://developer.mozilla.org/en-US/docs/Web/API/notification/Notification#Browser_compatibility
   
 ### demo
   https://www.zhangxinxu.com/study/201607/web-notifications.html
@@ -558,7 +560,3 @@ window.addEventListener('offline', updateOnlineStatus)
   * https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
   * https://www.sitepoint.com/10-html5-apis-worth-looking/
   * https://github.com/AurelioDeRosa/HTML5-API-demos
-
-
-
-  

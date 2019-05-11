@@ -157,3 +157,6 @@ deploy:
 4. 查看成果
 	
 	前往 ryanluoxu.github.io 即可。
+
+## 坑
+	* 文章名称不能以 api / API 结尾, 否则会找不到页面
