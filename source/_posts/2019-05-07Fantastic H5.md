@@ -103,6 +103,72 @@ eleImage.requestPointerLock()
 document.exitPointerLock()
 ```
 
+## deviceorientation 设备物理方向 与 devicemotion 设备加速信息
+  官方文档: https://www.w3.org/html/ig/zh/wiki/DeviceOrientation%E4%BA%8B%E4%BB%B6%E8%A7%84%E8%8C%83
+  参考文档: https://imweb.io/topic/56ab279be39ca21162ae6c75
+
+### 应用场景
+  * 摇一摇
+  * 体感游戏
+  * 罗盘
+
+### 兼容性
+  compatibility: https://developer.mozilla.org/en-US/docs/Web/API/Window/devicemotion_event#Browser_compatibility
+  compatibility: https://developer.mozilla.org/en-US/docs/Web/API/Window/deviceorientation_event#Browser_compatibility
+
+### demo
+```
+if (window.DeviceMotionEvent) {
+    window.addEventListener('devicemotion', shakeEventHandler, false);
+} else {
+    alert('本设备不支持devicemotion事件');
+}
+
+var THRESHOLD = 1000;
+var preX = preY = preZ = x = y = z = 0;
+var preTime = 0;
+
+function shakeEventHandler(event) {
+    var acceleration = event.accelerationIncludingGravity; 
+    var curTime = new Date().getTime();
+    var diffTime = curTime-preTime;
+
+    if (diffTime > 100) { 
+        preTime = curTime;  
+        x = acceleration.x;  
+        y = acceleration.y;  
+        z = acceleration.z;  
+
+        var accelerationDiff = Math.abs(x + y + z - preX - preY - preZ) / diffTime * 10000;  
+
+        if (accelerationDiff > THRESHOLD) {  
+            alert("摇一摇有惊喜！");  
+        }  
+        preX = x;  
+        preY = y;  
+        preZ = z;  
+    }  
+}
+```
+
+## Ambient Light 环境光
+  官方文档: https://www.w3.org/TR/ambient-light/
+  官方文档: https://developer.mozilla.org/en-US/docs/Web/API/Window/ondevicelight
+
+### 应用场景
+  * 阅读时的自适应背景光
+
+### 兼容性
+  compatibility: https://developer.mozilla.org/en-US/docs/Web/API/Window/ondevicelight#Browser_compatibility
+
+### demo
+```javascript
+var sensor = new AmbientLightSensor();
+sensor.addEventListener("reading", function (event) {
+  console.log(sensor.illuminance)
+})
+```
+
 # Web Performance 性能相关
   官方文档: https://www.w3.org/webperf/
   git仓库地址: https://github.com/w3c/web-performance/
@@ -248,6 +314,18 @@ console.table(navigator.connection)
 // saveData: false
 ```
 
+## online and offline 在线和离线
+
+### 应用场景
+  * 监测用户在线和离线
+
+### demo
+```javascript
+var condition = navigator.onLine ? "online" : "offline"
+window.addEventListener('online',  updateOnlineStatus)
+window.addEventListener('offline', updateOnlineStatus)
+```
+
 ## 信号浮标 Beacon 
 
 ### 应用场景
@@ -315,6 +393,7 @@ document.exitFullscreen()
   * 解决Audio标签受部分浏览器策略无法自动播放和调整音量的问题
   * 微信浏览器里可以放在wx.ready callbackFn里调用
   * 音频处理, 音频图形化
+  * 模拟乐器如钢琴打碟APP, 汤姆猫APP
 
 ### 兼容性
   compatibility: https://developer.mozilla.org/en-US/docs/Web/API/AudioContext#Browser_compatibility
@@ -452,7 +531,11 @@ init();
   参考文档: https://www.sitepoint.com/introduction-getusermedia-api/
 
 ### 应用场景
-  * WebRTC
+  * WebRTC, 实时直播
+  * 拍照自定义头像
+  * 视频聊天
+  * 抖音
+  * 美拍
 
 ### 兼容性
   compatibility: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#Browser_compatibility
@@ -472,6 +555,34 @@ navigator.mediaDevices.getUserMedia(myConstraints).then((stream) => {
 }, (error) => {
   console.error(error.name || error)
 })
+
+```
+
+## Web Speech web语音
+  官方文档: https://www.w3.org/community/speech-api/
+  官方文档: https://w3c.github.io/speech-api/speechapi.html#tts-section
+  参考文档: https://www.sitepoint.com/talking-web-pages-and-the-speech-synthesis-api/
+
+## 应用场景
+  * 无障碍阅读
+  * 语音控制
+  * 游戏分数, 天气, 股市, 新闻播报
+
+### 兼容性
+  compatibility: https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis#Browser_compatibility
+
+### demo
+  https://codepen.io/matt-west/pen/wGzuJ
+```javascript
+// Create the utterance object
+// 语音合成
+var utterance = new SpeechSynthesisUtterance();
+utterance.text = 'My name is Dino';
+utterance.lang = 'it-IT';
+utterance.rate = 1.2;
+utterance.onend = function() {
+  window.speechSynthesis.speak(utterance);
+});
 ```
 
 ## Web Notification
@@ -538,25 +649,11 @@ navigator.mediaDevices.getUserMedia(myConstraints).then((stream) => {
 </mrow>
 ```
 
-# Network 网络相关
-
-## online and offline 在线和离线
-
-### 应用场景
-  * 监测用户在线和离线
-
-### demo
-```javascript
-var condition = navigator.onLine ? "online" : "offline"
-window.addEventListener('online',  updateOnlineStatus)
-window.addEventListener('offline', updateOnlineStatus)
-```
-
 ### 兼容性
   compatibility: https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine#Browser_compatibility
-
 
 # 本文参考的其他文档
   * https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
   * https://www.sitepoint.com/10-html5-apis-worth-looking/
   * https://github.com/AurelioDeRosa/HTML5-API-demos
+  * https://whatwebcando.today/
